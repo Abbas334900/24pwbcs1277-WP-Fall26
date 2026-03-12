@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 5: Button Styling Collection</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/components.css">
+    <link rel="stylesheet" href="../styles/effects.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Task 5: Button Styling Collection</h1>
+        <p>A comprehensive collection of styled buttons with various sizes, colors, shapes, and interactive states</p>
+
+        <!-- Size Variations -->
+        <section style="background: white; padding: 30px; margin: 30px 0; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+            <h2>1. Button Sizes</h2>
+            <div class="button-group">
+                <button class="btn btn-small btn-primary">Small Button</button>
+                <button class="btn btn-primary">Normal Button</button>
+                <button class="btn btn-large btn-primary">Large Button</button>
+                <button class="btn btn-block btn-primary">Block Button (Full Width)</button>
+            </div>
+        </section>
+
+        <!-- Color Variations -->
+        <section style="background: white; padding: 30px; margin: 30px 0; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+            <h2>2. Button Colors</h2>
+            <div class="button-group">
+                <button class="btn btn-primary">Primary Button</button>
+                <button class="btn btn-secondary">Secondary Button</button>
+                <button class="btn btn-success">Success Button</button>
+                <button class="btn btn-danger">Danger Button</button>
+                <button class="btn btn-warning">Warning Button</button>
+            </div>
+        </section>
+
+        <!-- Shape Variations -->
+        <section style="background: white; padding: 30px; margin: 30px 0; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+            <h2>3. Button Shapes</h2>
+            <div class="button-group">
+                <button class="btn btn-primary" style="border-radius: 0;">Sharp Corners</button>
+                <button class="btn btn-secondary" style="border-radius: 4px;">Slightly Rounded</button>
+                <button class="btn btn-success" style="border-radius: 12px;">Medium Rounded</button>
+                <button class="btn btn-danger btn-rounded">Pill Shape</button>
+            </div>
+        </section>
+
+        <!-- Outline Buttons -->
+        <section style="background: white; padding: 30px; margin: 30px 0; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+            <h2>4. Outline and Ghost Buttons</h2>
+            <div class="button-group">
+                <button class="btn btn-outline">Outline Button</button>
+                <button class="btn btn-outline btn-rounded">Outline Pill</button>
+                <button class="btn btn-outline btn-small">Small Outline</button>
+                <button class="btn btn-outline btn-large">Large Outline</button>
+            </div>
+        </section>
+
+        <!-- Hover and Focus States -->
+        <section style="background: white; padding: 30px; margin: 30px 0; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+            <h2>5. Hover and Focus States</h2>
+            <p>Buttons have smooth transitions. Try hovering over them to see the effects.</p>
+            <div class="button-group">
+                <button class="btn btn-primary">Hover Effect</button>
+                <button class="btn btn-secondary">Focus Effect</button>
+                <button class="btn btn-success">Combined Effects</button>
+            </div>
+        </section>
+
+        <!-- Transition Effects -->
+        <section style="background: white; padding: 30px; margin: 30px 0; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+            <h2>6. Transition Effects</h2>
+            <div class="button-group">
+                <button class="btn btn-primary transition-color">Color Change</button>
+                <button class="btn btn-secondary transform-scale">Scale Growth</button>
+                <button class="btn btn-success transform-translate">Translate Motion</button>
+            </div>
+        </section>
+
+        <!-- Shadow and Gradient Backgrounds -->
+        <section style="background: white; padding: 30px; margin: 30px 0; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+            <h2>7. Shadow and Gradient Effects</h2>
+            <style>
+                .btn-shadow-soft {
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                }
+
+                .btn-shadow-dark {
+                    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+                }
+
+                .btn-shadow-colored {
+                    box-shadow: 0 4px 0 #2c3e50;
+                }
+
+                .btn-gradient {
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    color: white;
+                    border: none;
+                }
+
+                .btn-gradient:hover {
+                    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+                }
+
+                .btn-shadow-colored:hover {
+                    transform: translateY(-4px);
+                    box-shadow: 0 8px 0 #2c3e50;
+                }
+            </style>
+            <div class="button-group">
+                <button class="btn btn-primary btn-shadow-soft">Soft Shadow</button>
+                <button class="btn btn-secondary btn-shadow-dark">Dark Shadow</button>
+                <button class="btn btn-shadow-colored">Offset Shadow</button>
+                <button class="btn btn-gradient">Gradient Background</button>
+            </div>
+        </section>
+
+        <!-- Disabled State -->
+        <section style="background: white; padding: 30px; margin: 30px 0; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+            <h2>8. Disabled State</h2>
+            <div class="button-group">
+                <button class="btn btn-primary" disabled>Disabled Primary</button>
+                <button class="btn btn-secondary" disabled>Disabled Secondary</button>
+                <button class="btn btn-success" disabled>Disabled Success</button>
+                <button class="btn btn-danger" disabled>Disabled Danger</button>
+            </div>
+        </section>
+
+        <!-- Icon Buttons -->
+        <section style="background: white; padding: 30px; margin: 30px 0; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+            <h2>9. Buttons with Icons (Text Emojis)</h2>
+            <div class="button-group">
+                <button class="btn btn-primary">➕ Add</button>
+                <button class="btn btn-danger">✕ Delete</button>
+                <button class="btn btn-success">✓ Confirm</button>
+                <button class="btn btn-warning">⚠ Alert</button>
+                <button class="btn btn-secondary">↓ Download</button>
+            </div>
+        </section>
+
+        <!-- Button Groups -->
+        <section style="background: white; padding: 30px; margin: 30px 0; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+            <h2>10. Button Groups</h2>
+            <style>
+                .btn-group {
+                    display: inline-flex;
+                    border-radius: 4px;
+                    overflow: hidden;
+                }
+
+                .btn-group .btn {
+                    border-radius: 0;
+                    margin: 0;
+                    border-left: 1px solid #2980b9;
+                }
+
+                .btn-group .btn:first-child {
+                    border-left: none;
+                }
+
+                .btn-group .btn:last-child {
+                    margin-right: 0;
+                }
+            </style>
+            <div class="btn-group">
+                <button class="btn btn-primary">Left</button>
+                <button class="btn btn-primary">Center</button>
+                <button class="btn btn-primary">Right</button>
+            </div>
+
+            <div style="margin-top: 20px;">
+                <div class="btn-group">
+                    <button class="btn btn-secondary">Small</button>
+                    <button class="btn btn-secondary">Medium</button>
+                    <button class="btn btn-secondary">Large</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Loading State Button -->
+        <section style="background: white; padding: 30px; margin: 30px 0; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+            <h2>11. Loading State Button</h2>
+            <style>
+                .btn-loading {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 8px;
+                }
+
+                .loader-small {
+                    width: 14px;
+                    height: 14px;
+                    border: 2px solid rgba(255, 255, 255, 0.3);
+                    border-top: 2px solid white;
+                    border-radius: 50%;
+                    animation: spin 0.8s linear infinite;
+                }
+
+                @keyframes spin {
+                    to { transform: rotate(360deg); }
+                }
+            </style>
+            <div class="button-group">
+                <button class="btn btn-primary btn-loading">
+                    <span class="loader-small"></span>
+                    Loading...
+                </button>
+            </div>
+        </section>
+
+        <!-- Active State Button -->
+        <section style="background: white; padding: 30px; margin: 30px 0; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+            <h2>12. Active State Button</h2>
+            <style>
+                .btn-active {
+                    position: relative;
+                    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+                    transform: translateY(2px);
+                }
+            </style>
+            <div class="button-group">
+                <button class="btn btn-primary">Normal</button>
+                <button class="btn btn-primary btn-active">Active (Pressed)</button>
+                <button class="btn btn-primary">Normal</button>
+            </div>
+        </section>
+
+        <!-- Summary -->
+        <section style="background: white; padding: 30px; margin: 30px 0; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+            <h2>Summary</h2>
+            <p>This Button Styling Collection demonstrates:</p>
+            <ul>
+                <li><strong>Size Variations:</strong> Small, normal, large, and block layouts</li>
+                <li><strong>Color Schemes:</strong> Primary, secondary, success, danger, warning</li>
+                <li><strong>Shape Variations:</strong> Sharp corners to fully rounded pills</li>
+                <li><strong>Outline Buttons:</strong> Hollow buttons with border styling</li>
+                <li><strong>Hover and Focus States:</strong> Interactive visual feedback</li>
+                <li><strong>Transition Effects:</strong> Smooth CSS transitions on interactions</li>
+                <li><strong>Shadow and Gradient:</strong> Visual depth and modern styling</li>
+                <li><strong>Disabled State:</strong> Reduced opacity for disabled buttons</li>
+                <li><strong>Icon Support:</strong> Buttons with emoji icons</li>
+                <li><strong>Button Groups:</strong> Adjacent buttons with unified styling</li>
+                <li><strong>Loading State:</strong> Animated loading indicators</li>
+                <li><strong>Active State:</strong> Visual indication of pressed buttons</li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>

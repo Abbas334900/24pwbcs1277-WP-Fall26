@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 11: Personal Portfolio Styling</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <style>
+        body {
+            background: #f8f9fa;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+
+        .info-box {
+            background: #e8f4f8;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+
+        .section {
+            margin: 40px 0;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
+            margin-bottom: 20px;
+        }
+
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checklist li {
+            padding: 10px;
+            border-bottom: 1px solido #ecf0f1;
+            display: flex;
+            align-items: center;
+        }
+
+        .checklist li:before {
+            content: "☐ ";
+            color: #3498db;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .example-portfolio {
+            background: #ecf0f1;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .portfolio-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .portfolio-header h3 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        .portfolio-nav {
+            background: #2c3e50;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 4px;
+            margin: 20px 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .portfolio-nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-nav a:hover {
+            background: #3498db;
+        }
+
+        .portfolio-section {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 2px solid #ecf0f1;
+        }
+
+        .portfolio-section h4 {
+            color: #3498db;
+            margin-top: 0;
+        }
+
+        .portfolio-item {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .portfolio-item:last-child {
+            border-bottom: none;
+        }
+
+        .portfolio-item-image {
+            background: #3498db;
+            border-radius: 4px;
+            width: 150px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .portfolio-item-content h5 {
+            margin: 0 0 5px 0;
+            color: #2c3e50;
+        }
+
+        .portfolio-item-content p {
+            margin: 5px 0;
+            color: #7f8c8d;
+            font-size: 0.95rem;
+        }
+
+        .portfolio-footer {
+            background: #2c3e50;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .back-btn {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #2980b9;
+            transform: translateX(-5px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-btn">← Back to Dashboard</a>
+
+        <h1>Task 11: Personal Portfolio Styling</h1>
+
+        <div class="info-box">
+            <strong>📋 Task Overview:</strong> Apply comprehensive CSS styling to your Lab 02 portfolio project. Create a cohesive visual design with custom color scheme, improved typography, spacing, visual effects, and responsive layout.
+        </div>
+
+        <!-- Requirements Section -->
+        <div class="section">
+            <h2>Requirements</h2>
+            <ol>
+                <li><strong>Color Scheme:</strong> Define a cohesive color palette with primary, secondary, and accent colors</li>
+                <li><strong>Typography:</strong> Choose appropriate fonts and apply consistent sizing and spacing</li>
+                <li><strong>Layout:</strong> Use CSS Flexbox/Grid for responsive layouts</li>
+                <li><strong>Navigation:</strong> Style the navigation menu with hover effects and active states</li>
+                <li><strong>Hero Section:</strong> Create an attractive header/hero section with gradient background</li>
+                <li><strong>Cards/Sections:</strong> Style project/work cards with shadows, borders, and hover effects</li>
+                <li><strong>Images:</strong> Add image effects (border-radius, shadows, filters)</li>
+                <li><strong>Links & Buttons:</strong> Style all interactive elements with clear states</li>
+                <li><strong>Responsive Design:</strong> Ensure the portfolio works on mobile, tablet, and desktop</li>
+                <li><strong>Footer:</strong> Style footer with proper spacing and alignment</li>
+            </ol>
+        </div>
+
+        <!-- Steps Section -->
+        <div class="section">
+            <h2>Step-by-Step Implementation</h2>
+
+            <h3>Step 1: Define Your Color Scheme</h3>
+            <p>Create CSS variables for your color palette:</p>
+            <div class="code-block">:root {
+    --primary-color: #3498db;
+    --secondary-color: #e74c3c;
+    --accent-color: #f39c12;
+    --text-color: #2c3e50;
+    --light-bg: #ecf0f1;
+    --white: #ffffff;
+}</div>
+
+            <h3>Step 2: Import Google Fonts</h3>
+            <p>Add font imports to your portfolio:</p>
+            <div class="code-block">@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap');</div>
+
+            <h3>Step 3: Create a Modular CSS File</h3>
+            <p>Name it `portfolio.css` and link it in your HTML:</p>
+            <div class="code-block">&lt;link rel="stylesheet" href="portfolio.css"&gt;</div>
+
+            <h3>Step 4: Style Major Sections</h3>
+            <ul>
+                <li>Navigation bar</li>
+                <li>Hero/header section</li>
+                <li>About section</li>
+                <li>Portfolio/projects section</li>
+                <li>Skills section</li>
+                <li>Experience section</li>
+                <li>Contact/footer section</li>
+            </ul>
+
+            <h3>Step 5: Add Interactive Effects</h3>
+            <ul>
+                <li>Hover effects on navigation links</li>
+                <li>Hover zoom on project cards</li>
+                <li>Button hover states</li>
+                <li>Smooth transitions</li>
+                <li>Scroll effects (optional)</li>
+            </ul>
+
+            <h3>Step 6: Make It Responsive</h3>
+            <div class="code-block">/* Mobile First */
+body { font-size: 14px; }
+
+/* Tablet */
+@media (min-width: 768px) {
+    body { font-size: 16px; }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    body { font-size: 18px; }
+}</div>
+        </div>
+
+        <!-- Example Portfolio Section -->
+        <div class="section">
+            <h2>Example: Portfolio Structure</h2>
+            <p>Here's what a styled portfolio might look like:</p>
+
+            <!-- Portfolio Example -->
+            <div class="example-portfolio">
+                <!-- Header -->
+                <div class="portfolio-header">
+                    <h3>Abbas Khan</h3>
+                    <p>Web Developer & Designer</p>
+                </div>
+
+                <!-- Navigation -->
+                <div class="portfolio-nav">
+                    <a href="#about">About</a>
+                    <a href="#portfolio">Portfolio</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#contact">Contact</a>
+                </div>
+
+                <!-- About Section -->
+                <div class="portfolio-section">
+                    <h4>About Me</h4>
+                    <p>I'm a passionate web developer creating beautiful and functional websites. With expertise in HTML, CSS, and JavaScript, I bring ideas to life on the web.</p>
+                </div>
+
+                <!-- Portfolio Section -->
+                <div class="portfolio-section">
+                    <h4>Featured Projects</h4>
+                    
+                    <div class="portfolio-item">
+                        <div class="portfolio-item-image">Project 1</div>
+                        <div class="portfolio-item-content">
+                            <h5>Project Title 1</h5>
+                            <p>Brief description of your first project. Highlight the technologies used and what you learned.</p>
+                            <p><strong>Technologies:</strong> HTML, CSS, JavaScript</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item">
+                        <div class="portfolio-item-image">Project 2</div>
+                        <div class="portfolio-item-content">
+                            <h5>Project Title 2</h5>
+                            <p>Description of your second project. Explain the problem you solved and the solution you created.</p>
+                            <p><strong>Technologies:</strong> HTML, CSS, React</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item">
+                        <div class="portfolio-item-image">Project 3</div>
+                        <div class="portfolio-item-content">
+                            <h5>Project Title 3</h5>
+                            <p>Details about your third project. Share what made this project interesting or challenging.</p>
+                            <p><strong>Technologies:</strong> HTML, CSS, Node.js</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills Section -->
+                <div class="portfolio-section">
+                    <h4>Skills</h4>
+                    <p>HTML5, CSS3, JavaScript, Responsive Design, Git, API Integration</p>
+                </div>
+
+                <!-- Footer -->
+                <div class="portfolio-footer">
+                    <p>&copy; 2024 Abbas Khan. All rights reserved.</p>
+                    <p>Contact: <strong>email@example.com</strong> | Phone: <strong>+92 300 1234567</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CSS Properties Checklist -->
+        <div class="section">
+            <h2>CSS Properties to Apply</h2>
+            <ul class="checklist">
+                <li>background-color and background-images</li>
+                <li>color for text</li>
+                <li>font-family, font-size, font-weight</li>
+                <li>padding and margin for spacing</li>
+                <li>border and border-radius for styling</li>
+                <li>box-shadow for depth</li>
+                <li>hover and focus states</li>
+                <li>display: flex or display: grid for layout</li>
+                <li>max-width for responsive containers</li>
+                <li>transition for smooth animations</li>
+                <li>transform for effects</li>
+                <li>@media queries for responsive design</li>
+            </ul>
+        </div>
+
+        <!-- Styling Tips -->
+        <div class="section">
+            <h2>💡 Styling Tips</h2>
+            <ul>
+                <li><strong>Consistency:</strong> Use the same colors and fonts throughout</li>
+                <li><strong>Whitespace:</strong> Don't overcrowd - use padding and margins generously</li>
+                <li><strong>Contrast:</strong> Make sure text is readable against backgrounds</li>
+                <li><strong>Hierarchy:</strong> Use font sizes and colors to show importance</li>
+                <li><strong>Navigation:</strong> Make it clear where users can click</li>
+                <li><strong>Feedback:</strong> Show hover states for interactive elements</li>
+                <li><strong>Mobile First:</strong> Design for mobile, enhance for larger screens</li>
+                <li><strong>Performance:</strong> Keep CSS file size reasonable</li>
+            </ul>
+        </div>
+
+        <!-- Common Issues -->
+        <div class="section">
+            <h2>Common Issues & Solutions</h2>
+
+            <h3>Issue: Images not centered</h3>
+            <div class="code-block">/* Use this to center images */
+img {
+    display: block;
+    margin: 0 auto;
+}</div>
+
+            <h3>Issue: Text not readable on background</h3>
+            <div class="code-block">/* Add text shadow for better contrast */
+h1 {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}</div>
+
+            <h3>Issue: Layout breaks on mobile</h3>
+            <div class="code-block">/* Use max-width for responsive containers */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}</div>
+        </div>
+
+        <!-- Submission -->
+        <div class="section">
+            <h2>Submission Checklist</h2>
+            <ul class="checklist">
+                <li>Portfolio is styled with your color scheme</li>
+                <li>Typography is consistent and readable</li>
+                <li>Navigation allows easy access to all sections</li>
+                <li>Project cards have hover effects</li>
+                <li>Images are styled appropriately</li>
+                <li>Responsive design works on mobile</li>
+                <li>All links are functional</li>
+                <li>No console errors in browser DevTools</li>
+                <li>Code is properly formatted</li>
+                <li>Portfolio is uploaded to GitHub</li>
+            </ul>
+        </div>
+
+        <a href="../index.html" class="back-btn">← Back to Dashboard</a>
+
+    </div>
+</body>
+</html>

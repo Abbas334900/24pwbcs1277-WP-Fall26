@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4: Image Styling Portfolio</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <style>
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            height: 250px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        /* Rounded Corners */
+        .rounded-small {
+            border-radius: 4px;
+        }
+
+        .rounded-medium {
+            border-radius: 12px;
+        }
+
+        .rounded-large {
+            border-radius: 24px;
+        }
+
+        .rounded-full {
+            border-radius: 50%;
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        /* Image Borders */
+        .border-solid {
+            border: 3px solid #3498db;
+        }
+
+        .border-dashed {
+            border: 3px dashed #e74c3c;
+        }
+
+        .border-double {
+            border: 6px double #27ae60;
+        }
+
+        /* Image Shadows */
+        .shadow-soft {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .shadow-dark {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .shadow-colored {
+            box-shadow: 5px 5px 0 #3498db, 10px 10px 0 #e74c3c;
+        }
+
+        /* Hover Effects on Images */
+        .hover-zoom img {
+            transform: scale(1);
+            transition: transform 0.3s ease;
+        }
+
+        .hover-zoom .image-container:hover img {
+            transform: scale(1.1);
+        }
+
+        .hover-rotate .image-container:hover img {
+            transform: rotate(5deg) scale(1.05);
+        }
+
+        .hover-brightness .image-container:hover img {
+            filter: brightness(1.3);
+        }
+
+        .hover-grayscale .image-container:hover img {
+            filter: grayscale(0);
+        }
+
+        .image-grayscale {
+            filter: grayscale(1);
+        }
+
+        /* CSS Filters */
+        .filter-blur .image-container img {
+            filter: blur(3px);
+            transition: filter 0.3s ease;
+        }
+
+        .filter-blur .image-container:hover img {
+            filter: blur(0);
+        }
+
+        .filter-brightness .image-container img {
+            filter: brightness(0.7);
+            transition: filter 0.3s ease;
+        }
+
+        .filter-brightness .image-container:hover img {
+            filter: brightness(1);
+        }
+
+        .filter-contrast .image-container img {
+            filter: contrast(0.6);
+            transition: filter 0.3s ease;
+        }
+
+        .filter-contrast .image-container:hover img {
+            filter: contrast(1.5);
+        }
+
+        .filter-saturate .image-container img {
+            filter: saturate(0);
+            transition: filter 0.3s ease;
+        }
+
+        .filter-saturate .image-container:hover img {
+            filter: saturate(2);
+        }
+
+        .filter-sepia .image-container img {
+            filter: sepia(0.8);
+            transition: filter 0.3s ease;
+        }
+
+        .filter-sepia:hover .image-container img {
+            filter: sepia(0);
+        }
+
+        .filter-hue .image-container img {
+            filter: hue-rotate(0deg);
+            transition: filter 0.3s ease;
+        }
+
+        .filter-hue .image-container:hover img {
+            filter: hue-rotate(180deg);
+        }
+
+        /* Object Fit */
+        .object-fit-cover {
+            object-fit: cover;
+        }
+
+        .object-fit-contain {
+            object-fit: contain;
+            background-color: #ecf0f1;
+        }
+
+        .object-fit-fill {
+            object-fit: fill;
+        }
+
+        .object-fit-scale-down {
+            object-fit: scale-down;
+            background-color: #ecf0f1;
+        }
+
+        /* Image Overlays */
+        .overlay-container {
+            position: relative;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(52, 152, 219, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 8px;
+        }
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+
+        .overlay-text {
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .overlay-text h3 {
+            margin: 0;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .overlay-text p {
+            margin: 10px 0 0 0;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Blend Modes */
+        .blend-multiply {
+            mix-blend-mode: multiply;
+            opacity: 0.8;
+        }
+
+        .blend-screen {
+            mix-blend-mode: screen;
+            opacity: 0.9;
+        }
+
+        .blend-overlay {
+            mix-blend-mode: overlay;
+            opacity: 0.85;
+        }
+
+        .item-description {
+            padding: 20px;
+        }
+
+        .item-description h3 {
+            margin: 0 0 10px 0;
+            color: #2c3e50;
+        }
+
+        .item-description p {
+            margin: 0;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        .feature-section {
+            background: white;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-section h2 {
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .circular-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #3498db;
+            object-fit: cover;
+            margin: 20px auto;
+            display: block;
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
+        }
+
+        /* Demo SVG images for styling */
+        svg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Task 4: Image Styling Portfolio</h1>
+        <p>Comprehensive demonstration of CSS image styling, effects, and transformations</p>
+
+        <!-- Rounded Corners Section -->
+        <div class="feature-section">
+            <h2>1. Rounded Corners and Circular Images</h2>
+            <div class="gallery">
+                <div class="gallery-item rounded-small">
+                    <div class="image-container">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="200" height="200" fill="#3498db"/>
+                            <circle cx="100" cy="100" r="50" fill="#ecf0f1"/>
+                        </svg>
+                    </div>
+                    <div class="item-description">
+                        <h3>Small Radius (4px)</h3>
+                        <p>Subtle rounded corners for a clean look</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item rounded-medium">
+                    <div class="image-container">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="200" height="200" fill="#27ae60"/>
+                            <polygon points="100,30 170,170 30,170" fill="#ecf0f1"/>
+                        </svg>
+                    </div>
+                    <div class="item-description">
+                        <h3>Medium Radius (12px)</h3>
+                        <p>Moderate rounded corners</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item rounded-large">
+                    <div class="image-container">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="200" height="200" fill="#e74c3c"/>
+                            <circle cx="100" cy="100" r="60" fill="#ecf0f1"/>
+                        </svg>
+                    </div>
+                    <div class="item-description">
+                        <h3>Large Radius (24px)</h3>
+                        <p>Highly rounded corners</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="image-container" style="border-radius: 50%; overflow: hidden;">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="grad1">
+                                    <stop offset="0%" style="stop-color:#f39c12;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#e74c3c;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <rect width="200" height="200" fill="url(%23grad1)"/>
+                            <polygon points="100,50 150,150 50,150" fill="white" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    <div class="item-description">
+                        <h3>Circular (50%)</h3>
+                        <p>Perfect circular image</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Image Borders Section -->
+        <div class="feature-section">
+            <h2>2. Image Borders and Shadows</h2>
+            <div class="gallery">
+                <div class="gallery-item border-solid shadow-soft">
+                    <div class="image-container">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="200" height="200" fill="#3498db"/>
+                            <rect x="40" y="40" width="120" height="120" fill="#ecf0f1"/>
+                        </svg>
+                    </div>
+                    <div class="item-description">
+                        <h3>Solid Border + Soft Shadow</h3>
+                        <p>Blue border with subtle shadow</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item border-dashed shadow-dark">
+                    <div class="image-container">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="200" height="200" fill="#27ae60"/>
+                            <circle cx="100" cy="100" r="60" fill="#ecf0f1"/>
+                        </svg>
+                    </div>
+                    <div class="item-description">
+                        <h3>Dashed Border + Dark Shadow</h3>
+                        <p>Red dashed border with darker shadow</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item border-double shadow-colored">
+                    <div class="image-container">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="200" height="200" fill="#e74c3c"/>
+                            <path d="M50 50 L150 50 L150 150 L50 150 Z" stroke="#ecf0f1" stroke-width="3" fill="none"/>
+                        </svg>
+                    </div>
+                    <div class="item-description">
+                        <h3>Double Border + Colored Shadow</h3>
+                        <p>Green double border with colored offset</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hover Effects Section -->
+        <div class="feature-section">
+            <h2>3. Hover Effects and Transitions</h2>
+            <div class="gallery">
+                <div class="gallery-item hover-zoom">
+                    <div class="image-container">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="200" height="200" fill="#3498db"/>
+                            <circle cx="100" cy="100" r="40" fill="#ecf0f1"/>
+                        </svg>
+                    </div>
+                    <div class="item-description">
+                        <h3>Zoom on Hover</h3>
+                        <p>Image scales up when hovering</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item hover-rotate">
+                    <div class="image-container">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="200" height="200" fill="#27ae60"/>
+                            <polygon points="100,30 170,170 30,170" fill="#ecf0f1"/>
+                        </svg>
+                    </div>
+                    <div class="item-description">
+                        <h3>Rotate & Scale</h3>
+                        <p>Image rotates and scales on hover</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item hover-brightness">
+                    <div class="image-container">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="200" height="200" fill="#e74c3c"/>
+                            <circle cx="100" cy="100" r="50" fill="#ecf0f1"/>
+                        </svg>
+                    </div>
+                    <div class="item-description">
+                        <h3>Brightness Change</h3>
+                        <p>Image brightens on hover</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CSS Filters Section -->
+        <div class="feature-section">
+            <h2>4. CSS Filters Applied to Images</h2>
+            <div class="gallery">
+                <div class="gallery-item filter-blur">
+                    <div class="image-container">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="g2">
+                                    <stop offset="0%" style="stop-color:#667eea" />
+                                    <stop offset="100%" style="stop-color:#764ba2" />
+                                </linearGradient>
+                            </defs>
+                            <rect width="200" height="200" fill="url(%23g2)"/>
+                            <rect x="50" y="50" width="100" height="100" fill="#ecf0f1"/>
+                        </svg>
+                    </div>
+                    <div class="item-description">
+                        <h3>Blur Filter</h3>
+                        <p>Hover to remove blur effect</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item filter-brightness">
+                    <div class="image-container">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="200" height="200" fill="#f39c12"/>
+                            <circle cx="100" cy="100" r="50" fill="#fff"/>
+                        </svg>
+                    </div>
+                    <div class="item-description">
+                        <h3>Brightness Filter</h3>
+                        <p>Hover to increase brightness</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item filter-contrast">
+                    <div class="image-container">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="200" height="200" fill="#16a085"/>
+                            <polygon points="100,20 180,180 20,180" fill="#ecf0f1"/>
+                        </svg>
+                    </div>
+                    <div class="item-description">
+                        <h3>Contrast Filter</h3>
+                        <p>Hover to increase contrast</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item filter-saturate">
+                    <div class="image-container">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="g3">
+                                    <stop offset="0%" style="stop-color:#e74c3c" />
+                                    <stop offset="100%" style="stop-color:#c0392b" />
+                                </linearGradient>
+                            </defs>
+                            <rect width="200" height="200" fill="url(%23g3)"/>
+                            <circle cx="100" cy="100" r="60" fill="#ecf0f1" opacity="0.3"/>
+                        </svg>
+                    </div>
+                    <div class="item-description">
+                        <h3>Saturation Filter</h3>
+                        <p>Hover to increase saturation</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item filter-sepia">
+                    <div class="image-container">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="200" height="200" fill="#3498db"/>
+                            <path d="M50 50 L150 50 L150 150 L50 150 Z" stroke="#ecf0f1" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                    <div class="item-description">
+                        <h3>Sepia Filter</h3>
+                        <p>Hover to remove sepia effect</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item filter-hue">
+                    <div class="image-container">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="200" height="200" fill="#9b59b6"/>
+                            <circle cx="100" cy="100" r="55" fill="#ecf0f1"/>
+                        </svg>
+                    </div>
+                    <div class="item-description">
+                        <h3>Hue Rotate Filter</h3>
+                        <p>Hover to rotate hue 180°</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Image Overlays Section -->
+        <div class="feature-section">
+            <h2>5. Image Overlays with Text</h2>
+            <div class="gallery">
+                <div class="gallery-item overlay-container">
+                    <div class="image-container">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="200" height="200" fill="#3498db"/>
+                            <circle cx="100" cy="100" r="40" fill="#ecf0f1"/>
+                        </svg>
+                    </div>
+                    <div class="overlay">
+                        <div class="overlay-text">
+                            <h3>Overlay 1</h3>
+                            <p>Hover to see overlay</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item overlay-container">
+                    <div class="image-container">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="200" height="200" fill="#27ae60"/>
+                            <polygon points="100,30 170,170 30,170" fill="#ecf0f1"/>
+                        </svg>
+                    </div>
+                    <div class="overlay" style="background: rgba(39, 174, 96, 0.85);">
+                        <div class="overlay-text">
+                            <h3>Overlay 2</h3>
+                            <p>Text on image hover</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item overlay-container">
+                    <div class="image-container">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="200" height="200" fill="#e74c3c"/>
+                            <rect x="40" y="40" width="120" height="120" fill="#ecf0f1"/>
+                        </svg>
+                    </div>
+                    <div class="overlay" style="background: rgba(231, 76, 60, 0.85);">
+                        <div class="overlay-text">
+                            <h3>Overlay 3</h3>
+                            <p>Beautiful effect</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Object Fit Section -->
+        <div class="feature-section">
+            <h2>6. Object-Fit and Object-Position</h2>
+            <p>Demonstrating how images fit within their containers</p>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <div class="image-container object-fit-cover">
+                        <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="400" height="200" fill="#3498db"/>
+                            <circle cx="200" cy="100" r="80" fill="#ecf0f1"/>
+                        </svg>
+                    </div>
+                    <div class="item-description">
+                        <h3>Object-fit: Cover</h3>
+                        <p>Image covers entire container</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="image-container object-fit-contain">
+                        <svg viewBox="0 0 100 200" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100" height="200" fill="#27ae60"/>
+                            <circle cx="50" cy="100" r="40" fill="#ecf0f1"/>
+                        </svg>
+                    </div>
+                    <div class="item-description">
+                        <h3>Object-fit: Contain</h3>
+                        <p>Entire image fits in container</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="image-container object-fit-scale-down">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100" height="100" fill="#e74c3c"/>
+                            <polygon points="50,20 80,80 20,80" fill="#ecf0f1"/>
+                        </svg>
+                    </div>
+                    <div class="item-description">
+                        <h3>Object-fit: Scale-down</h3>
+                        <p>Scaled to fit container</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="feature-section">
+            <h2>Summary</h2>
+            <p>This Image Styling Portfolio demonstrates:</p>
+            <ul>
+                <li><strong>Rounded Corners:</strong> Small, medium, large, and circular images</li>
+                <li><strong>Borders and Shadows:</strong> Solid, dashed, double borders with various shadow effects</li>
+                <li><strong>Hover Effects:</strong> Zoom, rotation, brightness changes with transitions</li>
+                <li><strong>CSS Filters:</strong> Blur, brightness, contrast, saturation, sepia, hue rotate</li>
+                <li><strong>Image Overlays:</strong> Text overlays on hover for descriptive information</li>
+                <li><strong>Object-fit:</strong> Cover, contain, and scale-down object fitting</li>
+                <li><strong>Blend Modes:</strong> Creative effects using mix-blend-mode</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

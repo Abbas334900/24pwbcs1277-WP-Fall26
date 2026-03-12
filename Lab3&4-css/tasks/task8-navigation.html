@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 8: Navigation Menu Styling</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/components.css">
+    <style>
+        .nav-example {
+            background: white;
+            padding: 40px 0;
+            margin: 40px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .nav-title {
+            padding: 20px 20px 0;
+            color: #2c3e50;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* ===== Horizontal Navigation ===== */
+        .nav-horizontal {
+            background-color: #34495e;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-horizontal a {
+            color: white;
+            padding: 15px 25px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            display: block;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-horizontal a:hover {
+            background-color: #2c3e50;
+            border-bottom-color: #3498db;
+            color: #3498db;
+        }
+
+        .nav-horizontal a.active {
+            background-color: #3498db;
+            color: white;
+            border-bottom-color: #2980b9;
+        }
+
+        /* ===== Vertical Navigation ===== */
+        .nav-vertical {
+            background-color: #2c3e50;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-vertical a {
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: block;
+            border-left: 4px solid transparent;
+            padding-left: 20px;
+        }
+
+        .nav-vertical a:hover {
+            background-color: #34495e;
+            border-left-color: #3498db;
+            padding-left: 24px;
+        }
+
+        .nav-vertical a.active {
+            background-color: #3498db;
+            border-left-color: #2980b9;
+            color: white;
+        }
+
+        /* ===== Centered Navigation ===== */
+        .nav-centered {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-centered a {
+            color: white;
+            padding: 20px 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            font-weight: 500;
+        }
+
+        .nav-centered a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: white;
+            transition: width 0.3s ease;
+        }
+
+        .nav-centered a:hover::after {
+            width: 100%;
+        }
+
+        /* ===== Button-style Navigation ===== */
+        .nav-buttons {
+            background-color: #f8f9fa;
+            padding: 20px;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .nav-buttons a {
+            color: white;
+            background-color: #3498db;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .nav-buttons a:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-buttons a.active {
+            background-color: #27ae60;
+        }
+
+        /* ===== Dropdown Navigation ===== */
+        .dropdown-nav {
+            background-color: #34495e;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .dropdown-nav-item {
+            position: relative;
+            color: white;
+        }
+
+        .dropdown-nav > a,
+        .dropdown-nav-item > a {
+            color: white;
+            padding: 15px 25px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: block;
+            border-bottom: 3px solid transparent;
+        }
+
+        .dropdown-nav > a:hover,
+        .dropdown-nav-item > a:hover {
+            background-color: #2c3e50;
+            border-bottom-color: #3498db;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #2c3e50;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            display: none;
+            z-index: 1000;
+        }
+
+        .dropdown-nav-item:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            padding: 12px 20px;
+            border: none;
+            border-bottom: 1px solid #34495e;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #34495e;
+            border: none;
+            color: #3498db;
+        }
+
+        /* ===== Breadcrumb Navigation ===== */
+        .breadcrumb {
+            display: flex;
+            background-color: #ecf0f1;
+            padding: 15px 20px;
+            border-radius: 4px;
+            margin: 20px;
+            flex-wrap: wrap;
+        }
+
+        .breadcrumb a,
+        .breadcrumb span {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: #7f8c8d;
+            margin: 0 10px;
+        }
+
+        .breadcrumb span:last-child {
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        /* ===== Pagination Navigation ===== */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+
+        .pagination a,
+        .pagination span {
+            color: #3498db;
+            background-color: white;
+            border: 2px solid #3498db;
+            padding: 8px 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .pagination a:hover {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .pagination span.active {
+            background-color: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+
+        .pagination span.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            border-color: #bdc3c7;
+            color: #bdc3c7;
+        }
+
+        /* ===== Tab Navigation ===== */
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid #ecf0f1;
+            background-color: #f8f9fa;
+            gap: 0;
+        }
+
+        .tab-link {
+            color: #7f8c8d;
+            padding: 15px 20px;
+            text-decoration: none;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .tab-link:hover {
+            color: #3498db;
+            border-bottom-color: #bdc3c7;
+        }
+
+        .tab-link.active {
+            color: #3498db;
+            border-bottom-color: #3498db;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background-color: white;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* ===== Mobile Hamburger Menu ===== */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 15px;
+            gap: 8px;
+        }
+
+        .hamburger.show + .nav-mobile {
+            display: flex;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-mobile {
+            display: none;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .nav-mobile a {
+            padding: 15px 20px;
+            border-bottom: 1px solid #34495e;
+        }
+
+        @media (max-width: 768px) {
+            .nav-horizontal {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-buttons {
+                justify-content: space-around;
+            }
+        }
+
+        .section-wrapper {
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Task 8: Navigation Menu Styling</h1>
+        <p>Comprehensive showcase of various navigation menu styles and layouts</p>
+
+        <!-- Horizontal Navigation -->
+        <div class="nav-example">
+            <div class="nav-title">1. Horizontal Navigation</div>
+            <nav class="nav-horizontal">
+                <a href="#" class="active">Home</a>
+                <a href="#">About</a>
+                <a href="#">Services</a>
+                <a href="#">Portfolio</a>
+                <a href="#">Contact</a>
+            </nav>
+        </div>
+
+        <!-- Vertical Navigation -->
+        <div class="nav-example">
+            <div class="nav-title">2. Vertical Navigation (Sidebar)</div>
+            <nav class="nav-vertical" style="max-width: 250px;">
+                <a href="#" class="active">Dashboard</a>
+                <a href="#">Profile</a>
+                <a href="#">Settings</a>
+                <a href="#">Messages</a>
+                <a href="#">Notifications</a>
+                <a href="#">Help</a>
+                <a href="#">Sign Out</a>
+            </nav>
+        </div>
+
+        <!-- Centered Navigation with Underline -->
+        <div class="nav-example">
+            <div class="nav-title">3. Centered Navigation with Underline Effect</div>
+            <nav class="nav-centered">
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Services</a>
+                <a href="#">Blog</a>
+                <a href="#">Contact</a>
+            </nav>
+        </div>
+
+        <!-- Button-style Navigation -->
+        <div class="nav-example">
+            <div class="nav-title">4. Button-style Navigation</div>
+            <nav class="nav-buttons">
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Services</a>
+                <a href="#">Portfolio</a>
+                <a href="#" class="active">Contact</a>
+            </nav>
+        </div>
+
+        <!-- Dropdown Navigation -->
+        <div class="nav-example">
+            <div class="nav-title">5. Horizontal Navigation with Dropdowns</div>
+            <nav class="dropdown-nav">
+                <a href="#" class="active">Home</a>
+                <div class="dropdown-nav-item">
+                    <a href="#">Products ▾</a>
+                    <div class="dropdown-menu">
+                        <a href="#">Electronics</a>
+                        <a href="#">Clothing</a>
+                        <a href="#">Home & Garden</a>
+                        <a href="#">Sports</a>
+                    </div>
+                </div>
+                <div class="dropdown-nav-item">
+                    <a href="#">Services ▾</a>
+                    <div class="dropdown-menu">
+                        <a href="#">Consulting</a>
+                        <a href="#">Development</a>
+                        <a href="#">Design</a>
+                        <a href="#">Support</a>
+                    </div>
+                </div>
+                <a href="#">Blog</a>
+                <a href="#">Contact</a>
+            </nav>
+        </div>
+
+        <!-- Breadcrumb Navigation -->
+        <div class="nav-example">
+            <div class="nav-title">6. Breadcrumb Navigation</div>
+            <div class="breadcrumb">
+                <a href="#">Home</a>
+                <span>/</span>
+                <a href="#">Products</a>
+                <span>/</span>
+                <a href="#">Electronics</a>
+                <span>/</span>
+                <span>Laptops</span>
+            </div>
+        </div>
+
+        <!-- Pagination Navigation -->
+        <div class="nav-example">
+            <div class="nav-title">7. Pagination Navigation</div>
+            <div class="pagination">
+                <a href="#">← Previous</a>
+                <a href="#">1</a>
+                <span class="active">2</span>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <span>...</span>
+                <a href="#">10</a>
+                <a href="#">Next →</a>
+            </div>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="nav-example">
+            <div class="nav-title">8. Tab Navigation</div>
+            <div class="tabs">
+                <button class="tab-link active" onclick="openTab(event, 'tab1')">Overview</button>
+                <button class="tab-link" onclick="openTab(event, 'tab2')">Details</button>
+                <button class="tab-link" onclick="openTab(event, 'tab3')">Reviews</button>
+                <button class="tab-link" onclick="openTab(event, 'tab4')">Settings</button>
+            </div>
+            <div id="tab1" class="tab-content active">
+                <h3>Overview Tab</h3>
+                <p>This is the overview content. Click other tabs to navigate between different sections.</p>
+            </div>
+            <div id="tab2" class="tab-content">
+                <h3>Details Tab</h3>
+                <p>Detailed information is displayed here when you click the Details tab.</p>
+            </div>
+            <div id="tab3" class="tab-content">
+                <h3>Reviews Tab</h3>
+                <p>User reviews and ratings are shown in this section.</p>
+            </div>
+            <div id="tab4" class="tab-content">
+                <h3>Settings Tab</h3>
+                <p>Configuration options and preferences can be adjusted here.</p>
+            </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="nav-example">
+            <h2>Summary</h2>
+            <p>This Navigation Menu Styling showcase demonstrates:</p>
+            <ul>
+                <li><strong>Horizontal Navigation:</strong> Top navigation bars with borders and hover effects</li>
+                <li><strong>Vertical Navigation:</strong> Sidebar menus with left borders</li>
+                <li><strong>Centered Navigation:</strong> Elegant centered menus with underline animations</li>
+                <li><strong>Button-style Navigation:</strong> Button elements with hover effects</li>
+                <li><strong>Dropdown Menus:</strong> Multi-level navigation with hoverable dropdowns</li>
+                <li><strong>Breadcrumb Navigation:</strong> Hierarchical path navigation</li>
+                <li><strong>Pagination:</strong> Page navigation for paginated content</li>
+                <li><strong>Tab Navigation:</strong> Tabbed interface for content switching</li>
+                <li><strong>Hover and Active States:</strong> Visual feedback for interactions</li>
+                <li><strong>Responsive Design:</strong> Mobile-friendly menu layouts</li>
+                <li><strong>Transition Effects:</strong> Smooth CSS animations</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            const links = document.querySelectorAll('.tab-link');
+            links.forEach(link => link.classList.remove('active'));
+            
+            document.getElementById(tabName).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>

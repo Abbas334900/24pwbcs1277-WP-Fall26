@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 10: Advanced Effects Showcase</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/effects.css">
+    <style>
+        .effects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .effect-box {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .effect-box:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .effect-box h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+
+        .demo-element {
+            width: 150px;
+            height: 150px;
+            margin: 20px auto;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+        }
+
+        /* Gradient Text */
+        .gradient-text-demo {
+            background: linear-gradient(45deg, #3498db, #e74c3c, #f39c12, #3498db);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2rem;
+            font-weight: bold;
+            animation: gradientFlow 3s ease infinite;
+        }
+
+        @keyframes gradientFlow {
+            0%, 100% { background-position: 0%; }
+            50% { background-position: 100%; }
+        }
+
+        /* Custom Checkboxes and Radio Buttons */
+        .custom-checkbox,
+        .custom-radio {
+            margin: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .custom-checkbox input[type="checkbox"],
+        .custom-radio input[type="radio"] {
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border: 2px solid #3498db;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .custom-radio input[type="radio"] {
+            border-radius: 50%;
+        }
+
+        .custom-checkbox input[type="checkbox"]:checked,
+        .custom-radio input[type="radio"]:checked {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            border-color: #2980b9;
+        }
+
+        .custom-checkbox input[type="checkbox"]:checked::before {
+            content: '✓';
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .custom-checkbox input[type="checkbox"]:hover {
+            box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+        }
+
+        /* Loading Animation */
+        .loading-demo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            height: 60px;
+        }
+
+        .loader-dot {
+            width: 12px;
+            height: 12px;
+            background-color: #3498db;
+            border-radius: 50%;
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+
+        .loader-dot:nth-child(1) {
+            animation-delay: -0.32s;
+        }
+
+        .loader-dot:nth-child(2) {
+            animation-delay: -0.16s;
+        }
+
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+
+        .loader-ring {
+            display: inline-block;
+            position: relative;
+            width: 60px;
+            height: 60px;
+        }
+
+        .loader-ring div {
+            box-sizing: border-box;
+            display: block;
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            border: 4px solid #3498db;
+            border-radius: 50%;
+            animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+            border-color: #3498db transparent transparent transparent;
+        }
+
+        .loader-ring div:nth-child(1) {
+            animation-delay: -0.45s;
+        }
+
+        .loader-ring div:nth-child(2) {
+            animation-delay: -0.3s;
+        }
+
+        .loader-ring div:nth-child(3) {
+            animation-delay: -0.15s;
+        }
+
+        @keyframes lds-ring {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Text Clipping with Background */
+        .clip-text {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Complex Shadow Effects */
+        .shadow-multi {
+            width: 100px;
+            height: 100px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 
+                0 0 20px rgba(52, 152, 219, 0.3),
+                0 0 40px rgba(231, 76, 60, 0.2),
+                0 5px 15px rgba(0, 0, 0, 0.2);
+            margin: 20px auto;
+        }
+
+        /* Neon Glow */
+        .neon-text {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #00ff00;
+            text-shadow: 
+                0 0 10px #00ff00,
+                0 0 20px #00ff00,
+                0 0 30px #00ff00,
+                0 0 40px #00ff00;
+            animation: flicker 3s infinite;
+        }
+
+        @keyframes flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+            }
+            20%, 24%, 55% {
+                text-shadow: none;
+            }
+        }
+
+        /* Animated Border */
+        .animated-border {
+            width: 150px;
+            height: 150px;
+            margin: 20px auto;
+            background: white;
+            border: 3px solid;
+            border-image: linear-gradient(45deg, #3498db, #e74c3c, #27ae60, #3498db) 1;
+            position: relative;
+            animation: borderFlow 3s linear infinite;
+        }
+
+        @keyframes borderFlow {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+
+        /* Glassmorphism */
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 10px;
+            padding: 20px;
+            color: #2c3e50;
+        }
+
+        /* Particles/Dots Background */
+        .particle-bg {
+            position: relative;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 150px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: float 6s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            25% { transform: translateY(-20px) translateX(10px); }
+            50% { transform: translateY(-40px) translateX(-10px); }
+            75% { transform: translateY(-20px) translateX(15px); }
+        }
+
+        .section-container {
+            background: white;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Task 10: Advanced Effects Showcase</h1>
+        <p>Demonstration of advanced CSS techniques and creative effects</p>
+
+        <!-- Gradient Text Effects -->
+        <div class="section-container">
+            <h2>1. Gradient Text Effects</h2>
+            <div class="effects-grid">
+                <div class="effect-box">
+                    <div class="gradient-text-demo">Gradient Text</div>
+                    <p>Animated gradient text effect using background-clip</p>
+                </div>
+                <div class="effect-box">
+                    <div class="clip-text">Clip Effect</div>
+                    <p>Text clipped with gradient background</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Custom Form Elements -->
+        <div class="section-container">
+            <h2>2. Custom Checkboxes and Radio Buttons</h2>
+            <div class="effects-grid">
+                <div class="effect-box">
+                    <h3>Custom Checkbox</h3>
+                    <div class="custom-checkbox">
+                        <input type="checkbox" checked>
+                        <label>Styled Checkbox</label>
+                    </div>
+                    <div class="custom-checkbox">
+                        <input type="checkbox">
+                        <label>Unchecked</label>
+                    </div>
+                </div>
+                <div class="effect-box">
+                    <h3>Custom Radio Buttons</h3>
+                    <div class="custom-radio">
+                        <input type="radio" name="option" checked>
+                        <label>Option 1</label>
+                    </div>
+                    <div class="custom-radio">
+                        <input type="radio" name="option">
+                        <label>Option 2</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Animations -->
+        <div class="section-container">
+            <h2>3. Loading Animations</h2>
+            <div class="effects-grid">
+                <div class="effect-box">
+                    <h3>Bouncing Dots</h3>
+                    <div class="loading-demo">
+                        <div class="loader-dot"></div>
+                        <div class="loader-dot"></div>
+                        <div class="loader-dot"></div>
+                    </div>
+                </div>
+                <div class="effect-box">
+                    <h3>Spinning Ring</h3>
+                    <div style="display: flex; justify-content: center; align-items: center; height: 120px;">
+                        <div class="loader-ring">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Complex Shadow Effects -->
+        <div class="section-container">
+            <h2>4. Complex Shadow Effects</h2>
+            <div class="effects-grid">
+                <div class="effect-box">
+                    <h3>Multi-layer Shadow</h3>
+                    <div class="shadow-multi"></div>
+                </div>
+                <div class="effect-box">
+                    <h3>Neon Glow Effect</h3>
+                    <div class="neon-text">Neon</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Animated Borders -->
+        <div class="section-container">
+            <h2>5. Animated Borders</h2>
+            <div class="effects-grid">
+                <div class="effect-box">
+                    <h3>Flowing Border</h3>
+                    <div class="animated-border"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Glassmorphism -->
+        <div class="section-container">
+            <h2>6. Glassmorphism Effect</h2>
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 8px;">
+                <div class="glass-effect">
+                    <h3>Glass Effect Card</h3>
+                    <p>This is a glassmorphism effect created with backdrop-filter blur and semi-transparent background.</p>
+                    <button class="btn btn-primary">Learn More</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Particle Background -->
+        <div class="section-container">
+            <h2>7. Particle Animation Background</h2>
+            <div class="particle-bg">
+                <div class="particle" style="width: 8px; height: 8px; left: 20%; top: 20%; animation-delay: 0s;"></div>
+                <div class="particle" style="width: 6px; height: 6px; left: 30%; top: 30%; animation-delay: 1s;"></div>
+                <div class="particle" style="width: 10px; height: 10px; left: 50%; top: 10%; animation-delay: 2s;"></div>
+                <div class="particle" style="width: 7px; height: 7px; left: 70%; top: 40%; animation-delay: 1.5s;"></div>
+                <div class="particle" style="width: 8px; height: 8px; left: 80%; top: 20%; animation-delay: 0.5s;"></div>
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-weight: bold;">Floating Particles</div>
+            </div>
+        </div>
+
+        <!-- Advanced Transforms with Animations -->
+        <div class="section-container">
+            <h2>8. Advanced Transform Animations</h2>
+            <div class="effects-grid">
+                <div class="effect-box" style="animation: float 3s ease-in-out infinite;">
+                    <h3>Floating Box</h3>
+                    <p>Smooth floating animation</p>
+                </div>
+                <div class="effect-box" style="animation: pulse 2s ease-in-out infinite;">
+                    <h3>Pulsing Box</h3>
+                    <p>Opacity pulse effect</p>
+                </div>
+                <div class="effect-box" style="animation: spin 2s linear infinite;">
+                    <h3>Spinning Box</h3>
+                    <p>Continuous rotation</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filter Combinations -->
+        <div class="section-container">
+            <h2>9. Filter Effects Combinations</h2>
+            <div class="effects-grid">
+                <div class="effect-box">
+                    <div class="demo-element" style="background: linear-gradient(135deg, #3498db, #e74c3c);filter: brightness(1.2) contrast(1.5) saturate(1.8);">
+                        Bright & Bold
+                    </div>
+                    <p>brightness + contrast + saturate</p>
+                </div>
+                <div class="effect-box">
+                    <div class="demo-element" style="background: linear-gradient(135deg, #27ae60, #f39c12); filter: sepia(0.8) hue-rotate(90deg);">
+                        Sepia Shift
+                    </div>
+                    <p>sepia + hue-rotate</p>
+                </div>
+                <div class="effect-box">
+                    <div class="demo-element" style="background: linear-gradient(135deg, #e74c3c, #3498db); filter: blur(2px) brightness(0.8) invert(0.5);">
+                        Blur Invert
+                    </div>
+                    <p>blur + brightness + invert</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blend Modes -->
+        <div class="section-container">
+            <h2>10. Blend Modes</h2>
+            <div class="effects-grid">
+                <div class="effect-box">
+                    <div class="demo-element" style="background: yellow; mix-blend-mode: multiply;">
+                        Multiply
+                    </div>
+                </div>
+                <div class="effect-box">
+                    <div class="demo-element" style="background: #333; mix-blend-mode: screen;">
+                        Screen
+                    </div>
+                </div>
+                <div class="effect-box">
+                    <div class="demo-element" style="background: orange; mix-blend-mode: overlay;">
+                        Overlay
+                    </div>
+                </div>
+                <div class="effect-box">
+                    <div class="demo-element" style="background: purple; mix-blend-mode: color-dodge;">
+                        Color Dodge
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="section-container">
+            <h2>Summary</h2>
+            <p>This Advanced Effects Showcase demonstrates:</p>
+            <ul>
+                <li><strong>Gradient Text:</strong> Text clipping with background gradients</li>
+                <li><strong>Custom Form Elements:</strong> Styled checkboxes and radio buttons</li>
+                <li><strong>Loading Animations:</strong> CSS-based loading indicators</li>
+                <li><strong>Complex Shadows:</strong> Multi-layer shadow effects</li>
+                <li><strong>Neon Glow:</strong> Glowing text effects with animations</li>
+                <li><strong>Animated Borders:</strong> Dynamic border animations</li>
+                <li><strong>Glassmorphism:</strong> Modern frosted glass effect</li>
+                <li><strong>Particle Animations:</strong> Floating particle backgrounds</li>
+                <li><strong>Advanced Transforms:</strong> Complex combined transformations</li>
+                <li><strong>Filter Effects:</strong> Multiple filter combinations</li>
+                <li><strong>Blend Modes:</strong> Creative blend mode effects</li>
+                <li><strong>Performance Optimization:</strong> Efficient CSS animations</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1: CSS Selectors Practice</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <style>
+        /* ========== BASIC SELECTORS ========== */
+        /* 1. Element Selector */
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        /* 2. Class Selector */
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        /* 3. ID Selector */
+        #intro {
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        /* 4. Universal Selector */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 5. Attribute Selector - [attribute] */
+        [data-section] {
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
+            margin: 15px 0;
+        }
+
+        /* ========== ATTRIBUTE SELECTORS ========== */
+        /* 6. Attribute Value Selector - [attribute="value"] */
+        input[type="text"] {
+            border: 2px solid #3498db;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+
+        /* 7. Partial Value Matching - [attribute*="value"] */
+        a[href*="github"] {
+            color: #333;
+            font-weight: bold;
+            background-color: #ecf0f1;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        /* 8. Begins With Selector - [attribute^="value"] */
+        a[href^="https"] {
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+
+        /* ========== COMBINATORS ========== */
+        /* 9. Descendant Combinator */
+        .container p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* 10. Child Combinator */
+        ul > li {
+            list-style: none;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="%233498db" d="M13.5 2.5L6 10l-3.5-3.5"/></svg>');
+            background-repeat: no-repeat;
+            background-position: 0 2px;
+            padding-left: 20px;
+            margin: 8px 0;
+        }
+
+        /* 11. Adjacent Sibling Combinator */
+        h2 + p {
+            font-style: italic;
+            color: #7f8c8d;
+            margin-top: -10px;
+        }
+
+        /* 12. General Sibling Combinator */
+        .feature ~ .feature {
+            border-top: 1px dashed #bdc3c7;
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+
+        /* ========== PSEUDO-CLASSES ========== */
+        /* 13. Link Pseudo-classes */
+        a {
+            color: #3498db;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        a:link {
+            color: #3498db;
+        }
+
+        a:visited {
+            color: #9b59b6;
+        }
+
+        a:hover {
+            color: #e74c3c;
+            text-decoration: underline;
+        }
+
+        a:active {
+            color: #c0392b;
+        }
+
+        /* 14. Form Pseudo-classes */
+        input:focus {
+            outline: none;
+            box-shadow: 0 0 5px #3498db;
+            background-color: #e8f4f8;
+        }
+
+        input:checked {
+            accent-color: #27ae60;
+        }
+
+        input:disabled {
+            background-color: #ecf0f1;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        /* 15. Structural Pseudo-classes */
+        li:first-child {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
+        li:last-child {
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        li:nth-child(even) {
+            background-color: #f8f9fa;
+            padding: 5px;
+        }
+
+        /* ========== PSEUDO-ELEMENTS ========== */
+        /* 16. ::before Pseudo-element */
+        .quote::before {
+            content: '❝ ';
+            color: #3498db;
+            font-size: 2rem;
+            line-height: 0;
+            vertical-align: -0.4em;
+        }
+
+        /* 17. ::after Pseudo-element */
+        .quote::after {
+            content: ' ❞';
+            color: #3498db;
+            font-size: 2rem;
+            line-height: 0;
+            vertical-align: -0.4em;
+        }
+
+        /* ========== Additional Styles ========== */
+        .selector-example {
+            background-color: #f8f9fa;
+            border: 1px solid #bdc3c7;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .selector-name {
+            background-color: #3498db;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        code {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Task 1: CSS Selectors Practice</h1>
+
+        <div id="intro">
+            <h2>Introduction</h2>
+            <p>This page demonstrates <span class="highlight">5 different basic selectors</span>, <span class="highlight">3 attribute selectors</span>, <span class="highlight">4 combinators</span>, <span class="highlight">5 pseudo-classes</span>, and <span class="highlight">2 pseudo-elements</span>.</p>
+        </div>
+
+        <!-- Basic Selectors Section -->
+        <section class="selector-example">
+            <span class="selector-name">Element Selector</span>
+            <p>This paragraph is styled with an <code>h1</code> element selector. The heading above has a blue bottom border.</p>
+        </section>
+
+        <section class="selector-example">
+            <span class="selector-name">Class Selector</span>
+            <p>Words highlighted with <code>.highlight</code> class have a yellow background like <span class="highlight">this text</span>.</p>
+        </section>
+
+        <section class="selector-example" id="intro">
+            <span class="selector-name">ID Selector</span>
+            <p>The element with <code>#intro</code> has a light gray background (see the introduction box above).</p>
+        </section>
+
+        <!-- Attribute Selectors Section -->
+        <section class="selector-example" data-section="attributes">
+            <span class="selector-name">Attribute Selector [attribute]</span>
+            <p>Any element with a <code>data-section</code> attribute (like this section) has a blue left border and padding.</p>
+        </section>
+
+        <section class="selector-example">
+            <span class="selector-name">Attribute Value Selector [attribute="value"]</span>
+            <p>Text inputs with <code>[type="text"]</code> selector:</p>
+            <input type="text" placeholder="Type something...">
+            <input type="text" placeholder="Another text input">
+        </section>
+
+        <section class="selector-example">
+            <span class="selector-name">Partial Value Selector [attribute*="value"]</span>
+            <p>Links containing "github" in href: <a href="https://github.com">GitHub Profile</a></p>
+        </section>
+
+        <!-- Combinators Section -->
+        <section class="selector-example">
+            <span class="selector-name">Descendant Combinator (space)</span>
+            <div class="container">
+                <p>This paragraph is a descendant of .container and appears larger with increased line-height.</p>
+                <p>Another paragraph in the container with the same styling.</p>
+            </div>
+        </section>
+
+        <section class="selector-example">
+            <span class="selector-name">Child Combinator (>)</span>
+            <p>List items that are direct children of UL:</p>
+            <ul>
+                <li>First item (styled with custom bullet)</li>
+                <li>Second item</li>
+                <li>Third item</li>
+                <li>Fourth item</li>
+            </ul>
+        </section>
+
+        <section class="selector-example">
+            <span class="selector-name">Adjacent Sibling Combinator (+)</span>
+            <h2>Heading 2</h2>
+            <p>The paragraph immediately after h2 is italicized and lighter in color due to the <code>h2 + p</code> combinator.</p>
+            <p>This paragraph comes after another paragraph, so it's not styled by the adjacent sibling combinator.</p>
+        </section>
+
+        <section class="selector-example">
+            <span class="selector-name">General Sibling Combinator (~)</span>
+            <div class="feature">Feature 1 - First feature</div>
+            <p>Some text between features</p>
+            <div class="feature">Feature 2 - Has border top and padding</div>
+            <div class="feature">Feature 3 - Also has styling</div>
+        </section>
+
+        <!-- Pseudo-classes Section -->
+        <section class="selector-example">
+            <span class="selector-name">Link Pseudo-classes</span>
+            <p>Link pseudo-classes (:link, :visited, :hover, :active):</p>
+            <ul>
+                <li><a href="#">Unvisited link (blue)</a></li>
+                <li><a href="https://example.com">Visited link (purple)</a></li>
+                <li><a href="#">Hover over this link (turns red)</a></li>
+            </ul>
+        </section>
+
+        <section class="selector-example">
+            <span class="selector-name">Form Pseudo-classes</span>
+            <p>Form pseudo-classes (:focus, :checked, :disabled):</p>
+            <p>
+                <input type="text" placeholder="Click to focus (blue shadow)">
+            </p>
+            <p>
+                <label>
+                    <input type="checkbox"> Checkbox (:checked styling)
+                </label>
+            </p>
+            <p>
+                <input type="text" placeholder="Disabled input" disabled>
+            </p>
+        </section>
+
+        <section class="selector-example">
+            <span class="selector-name">Structural Pseudo-classes</span>
+            <p>List demonstrating :first-child, :last-child, and :nth-child(even):</p>
+            <ul>
+                <li>First item (red, bold)</li>
+                <li>Second item (even, light background)</li>
+                <li>Third item (odd, no background)</li>
+                <li>Fourth item (even, light background)</li>
+                <li>Last item (green, bold)</li>
+            </ul>
+        </section>
+
+        <!-- Pseudo-elements Section -->
+        <section class="selector-example">
+            <span class="selector-name">Pseudo-elements (::before and ::after)</span>
+            <p class="quote">This is a quoted text styled with ::before and ::after pseudo-elements to add decorative quotes.</p>
+        </section>
+
+        <!-- Summary -->
+        <section class="selector-example">
+            <h2>Summary</h2>
+            <p>This page demonstrates comprehensive CSS selector usage:</p>
+            <ul>
+                <li><strong>5 Basic Selectors:</strong> Element (h1), Class (.highlight), ID (#intro), Universal (*), Attribute ([data-section])</li>
+                <li><strong>3 Attribute Selectors:</strong> [attribute], [attribute="value"], [attribute*="value"]</li>
+                <li><strong>4 Combinators:</strong> Descendant (space), Child (>), Adjacent Sibling (+), General Sibling (~)</li>
+                <li><strong>5 Pseudo-classes:</strong> :link, :visited, :hover, :active, :focus, :checked, :disabled, :first-child, :last-child, :nth-child()</li>
+                <li><strong>2 Pseudo-elements:</strong> ::before, ::after</li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>

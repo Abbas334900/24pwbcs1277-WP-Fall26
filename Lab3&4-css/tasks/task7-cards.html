@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 7: Card Component Design</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/components.css">
+    <style>
+        .card-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+            transform: translateY(-8px);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-image.hover-zoom {
+            overflow: hidden;
+        }
+
+        .card:hover .card-image img {
+            transform: scale(1.1);
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            margin: 0 0 10px 0;
+            color: #2c3e50;
+        }
+
+        .card-text {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+            margin: 0 0 15px 0;
+            line-height: 1.6;
+        }
+
+        .card-footer {
+            padding: 15px 20px;
+            background-color: #f8f9fa;
+            border-top: 1px solid #ecf0f1;
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .card-footer .btn {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #e74c3c;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .card-price {
+            font-size: 1.5rem;
+            color: #27ae60;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .card-rating {
+            color: #f39c12;
+            margin-bottom: 10px;
+        }
+
+        .card-meta {
+            font-size: 0.85rem;
+            color: #95a5a6;
+            margin: 0;
+        }
+
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(52, 152, 219, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            color: white;
+            text-align: center;
+        }
+
+        .card:hover .card-overlay {
+            opacity: 1;
+        }
+
+        .card-section {
+            background: white;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+
+        .feature-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #ecf0f1;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-list li:before {
+            content: '✓';
+            color: #27ae60;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Task 7: Card Component Design</h1>
+        <p>Comprehensive showcase of card components with various layouts, styles, and interactions</p>
+
+        <!-- Product Cards -->
+        <div class="card-section">
+            <h2>1. Product Cards</h2>
+            <div class="card-gallery">
+                <div class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+                            <circle cx="100" cy="100" r="60" fill="rgba(255,255,255,0.1)"/>
+                            <rect x="70" y="70" width="60" height="60" fill="rgba(255,255,255,0.2)"/>
+                        </svg>
+                        <div class="card-badge">Sale</div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Premium Product</h3>
+                        <p class="card-rating">★★★★★ (4.8)</p>
+                        <p class="card-text">High-quality product with excellent features and durability.</p>
+                        <div class="card-price">$99.99 <span style="text-decoration: line-through; color: #95a5a6; font-size: 1rem;">$149.99</span></div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary">Add to Cart</button>
+                        <button class="btn btn-outline">❤</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, #27ae60 0%, #229954 100%);">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+                            <polygon points="100,30 170,170 30,170" fill="rgba(255,255,255,0.3)"/>
+                        </svg>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Standard Product</h3>
+                        <p class="card-rating">★★★★☆ (4.2)</p>
+                        <p class="card-text">Great value for money with solid construction and performance.</p>
+                        <div class="card-price">$49.99</div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-success">Add to Cart</button>
+                        <button class="btn btn-outline">❤</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+                            <circle cx="100" cy="100" r="50" fill="rgba(255,255,255,0.2)"/>
+                            <circle cx="100" cy="100" r="30" fill="rgba(255,255,255,0.1)"/>
+                        </svg>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Budget Product</h3>
+                        <p class="card-rating">★★★☆☆ (3.5)</p>
+                        <p class="card-text">Affordable option for budget-conscious shoppers.</p>
+                        <div class="card-price">$29.99</div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-danger">Add to Cart</button>
+                        <button class="btn btn-outline">❤</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service Cards -->
+        <div class="card-section">
+            <h2>2. Service Cards</h2>
+            <div class="card-gallery">
+                <div class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; font-size: 4rem;">🎨</div>
+                    <div class="card-body">
+                        <h3 class="card-title">Web Design</h3>
+                        <p class="card-text">Creative and modern web design solutions for your business needs.</p>
+                        <ul class="feature-list">
+                            <li>Responsive Design</li>
+                            <li>Modern UI/UX</li>
+                            <li>Fast Delivery</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary">Learn More</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%); display: flex; align-items: center; justify-content: center; font-size: 4rem;">💻</div>
+                    <div class="card-body">
+                        <h3 class="card-title">Development</h3>
+                        <p class="card-text">Full-stack development services with latest technologies.</p>
+                        <ul class="feature-list">
+                            <li>Custom Solutions</li>
+                            <li>API Integration</li>
+                            <li>Security Focused</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary">Learn More</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, #16a085 0%, #138d75 100%); display: flex; align-items: center; justify-content: center; font-size: 4rem;">📱</div>
+                    <div class="card-body">
+                        <h3 class="card-title">Mobile Apps</h3>
+                        <p class="card-text">Native and cross-platform mobile application development.</p>
+                        <ul class="feature-list">
+                            <li>iOS & Android</li>
+                            <li>Cross-platform</li>
+                            <li>Performance Optimized</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Member Cards -->
+        <div class="card-section">
+            <h2>3. Team Member Cards</h2>
+            <div class="card-gallery">
+                <div class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, #3498db 0%, #2980b9 100%); display: flex; align-items: center; justify-content: center; font-size: 3rem;">👨‍💼</div>
+                    <div class="card-body" style="text-align: center;">
+                        <h3 class="card-title">John Smith</h3>
+                        <p class="card-meta">Lead Developer</p>
+                        <p class="card-text">Expert in full-stack development with 5+ years experience.</p>
+                    </div>
+                    <div class="card-footer" style="justify-content: center; gap: 15px;">
+                        <a href="#" style="text-decoration: none; color: #3498db;">LinkedIn</a>
+                        <a href="#" style="text-decoration: none; color: #3498db;">GitHub</a>
+                        <a href="#" style="text-decoration: none; color: #3498db;">Email</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); display: flex; align-items: center; justify-content: center; font-size: 3rem;">👩‍🎨</div>
+                    <div class="card-body" style="text-align: center;">
+                        <h3 class="card-title">Sarah Design</h3>
+                        <p class="card-meta">UI/UX Designer</p>
+                        <p class="card-text">Creative designer with passion for user-centered design.</p>
+                    </div>
+                    <div class="card-footer" style="justify-content: center; gap: 15px;">
+                        <a href="#" style="text-decoration: none; color: #3498db;">LinkedIn</a>
+                        <a href="#" style="text-decoration: none; color: #3498db;">Portfolio</a>
+                        <a href="#" style="text-decoration: none; color: #3498db;">Email</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, #27ae60 0%, #229954 100%); display: flex; align-items: center; justify-content: center; font-size: 3rem;">👨‍💻</div>
+                    <div class="card-body" style="text-align: center;">
+                        <h3 class="card-title">Mike Johnson</h3>
+                        <p class="card-meta">Frontend Developer</p>
+                        <p class="card-text">Specialist in modern JavaScript frameworks and responsive design.</p>
+                    </div>
+                    <div class="card-footer" style="justify-content: center; gap: 15px;">
+                        <a href="#" style="text-decoration: none; color: #3498db;">LinkedIn</a>
+                        <a href="#" style="text-decoration: none; color: #3498db;">GitHub</a>
+                        <a href="#" style="text-decoration: none; color: #3498db;">Email</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blog Post Cards -->
+        <div class="card-section">
+            <h2>4. Blog Post Cards</h2>
+            <div class="card-gallery">
+                <div class="card">
+                    <div class="card-image hover-zoom" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                    <div class="card-body">
+                        <p class="card-meta">Posted on March 10, 2024</p>
+                        <h3 class="card-title">CSS Best Practices</h3>
+                        <p class="card-text">Learn the best practices for writing clean, maintainable CSS code in modern web development.</p>
+                        <p class="card-meta">By John Smith • 5 min read</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary" style="flex: 1;">Read More</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image hover-zoom" style="background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);"></div>
+                    <div class="card-body">
+                        <p class="card-meta">Posted on March 15, 2024</p>
+                        <h3 class="card-title">JavaScript Tips</h3>
+                        <p class="card-text">Useful JavaScript tips and tricks that will improve your coding efficiency and performance.</p>
+                        <p class="card-meta">By Sarah Design • 7 min read</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary" style="flex: 1;">Read More</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image hover-zoom" style="background: linear-gradient(135deg, #27ae60 0%, #229954 100%);"></div>
+                    <div class="card-body">
+                        <p class="card-meta">Posted on March 20, 2024</p>
+                        <h3 class="card-title">Web Performance Guide</h3>
+                        <p class="card-text">Complete guide to optimizing your website for better performance and user experience.</p>
+                        <p class="card-meta">By Mike Johnson • 10 min read</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary" style="flex: 1;">Read More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="card-section">
+            <h2>Summary</h2>
+            <p>This Card Component Design showcase demonstrates:</p>
+            <ul>
+                <li><strong>Product Cards:</strong> With images, prices, ratings, and CTAs</li>
+                <li><strong>Service Cards:</strong> Icons, descriptions, and feature lists</li>
+                <li><strong>Team Member Cards:</strong> Profile information and social links</li>
+                <li><strong>Blog Cards:</strong> Article previews with metadata</li>
+                <li><strong>Consistent Spacing:</strong> Padding, margins, and gaps</li>
+                <li><strong>Shadow Effects:</strong> For visual depth and hierarchy</li>
+                <li><strong>Hover Transformations:</strong> Scale, translate, and opacity changes</li>
+                <li><strong>Image Effects:</strong> Gradients and zoom on hover</li>
+                <li><strong>Call-to-Action Buttons:</strong> Primary and secondary actions</li>
+                <li><strong>Badges and Metadata:</strong> Additional information display</li>
+                <li><strong>Responsive Design:</strong> Grid layouts that adapt to screen size</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

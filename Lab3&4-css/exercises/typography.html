@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2: Typography Showcase</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/typography.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Task 2: Typography Showcase</h1>
+        <p>Demonstrating Google Fonts, font sizes, text styling, and shadow effects</p>
+
+        <!-- Google Fonts Section -->
+        <section class="typography-section">
+            <h2>Google Fonts Implementations</h2>
+
+            <div class="typography-example">
+                <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 3px; display: inline-block; margin-bottom: 10px;">Font 1: Roboto</span>
+                <h3 class="font-roboto">Roboto Regular (400)</h3>
+                <p class="font-roboto">This is Roboto font at regular weight. It's a clean, geometric sans-serif typeface designed by Christian Robertson for Google.</p>
+                
+                <h4 class="font-roboto-bold">Roboto Bold (700)</h4>
+                <p class="font-roboto-bold">This is Roboto font at bold weight, providing stronger visual hierarchy.</p>
+                
+                <h4 class="font-roboto-light">Roboto Light (300)</h4>
+                <p class="font-roboto-light">This is Roboto font at light weight, ideal for elegant and sophisticated designs.</p>
+            </div>
+
+            <div class="typography-example">
+                <span style="background-color: #27ae60; color: white; padding: 5px 10px; border-radius: 3px; display: inline-block; margin-bottom: 10px;">Font 2: Open Sans</span>
+                <h3 class="font-opensans">Open Sans Regular (400)</h3>
+                <p class="font-opensans">Open Sans is a humanist sans serif typeface designed by Steve Matteson. It's widely used for web typography.</p>
+                
+                <h4 class="font-opensans-bold">Open Sans Bold (700)</h4>
+                <p class="font-opensans-bold">Open Sans in bold provides excellent readability and visual prominence on web pages.</p>
+            </div>
+
+            <div class="typography-example">
+                <span style="background-color: #e74c3c; color: white; padding: 5px 10px; border-radius: 3px; display: inline-block; margin-bottom: 10px;">Font 3: Playfair Display</span>
+                <h3 class="font-playfair">Playfair Display - Classic Serif Elegance</h3>
+                <p class="font-playfair">Playfair Display is a high-contrast serif typeface inspired by Didot and Bodoni, perfect for headlines and elegant designs.</p>
+            </div>
+        </section>
+
+        <!-- Font Sizes Section -->
+        <section class="typography-section">
+            <h2>Font Size Units Demonstration</h2>
+
+            <div class="typography-example">
+                <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 3px; display: inline-block; margin-bottom: 10px;">Pixels (px)</span>
+                <p class="font-size-px">This text is 16px. Pixels are fixed units not relative to any other length.</p>
+            </div>
+
+            <div class="typography-example">
+                <span style="background-color: #27ae60; color: white; padding: 5px 10px; border-radius: 3px; display: inline-block; margin-bottom: 10px;">Em Units (em)</span>
+                <p class="font-size-em">This text is 1.25em. Em values are relative to the parent element's font size.</p>
+            </div>
+
+            <div class="typography-example">
+                <span style="background-color: #f39c12; color: white; padding: 5px 10px; border-radius: 3px; display: inline-block; margin-bottom: 10px;">Root Em (rem)</span>
+                <p class="font-size-rem">This text is 1.5rem. Rem values are relative to the root (html) element's font size.</p>
+            </div>
+
+            <div class="typography-example">
+                <span style="background-color: #e74c3c; color: white; padding: 5px 10px; border-radius: 3px; display: inline-block; margin-bottom: 10px;">Percentage (%)</span>
+                <p class="font-size-percent">This text is 125%. Percentages are relative to the parent element's font size.</p>
+            </div>
+
+            <div class="typography-example">
+                <span style="background-color: #9b59b6; color: white; padding: 5px 10px; border-radius: 3px; display: inline-block; margin-bottom: 10px;">Viewport Width (vw)</span>
+                <p class="font-size-vw">This text is 4vw (responsive to viewport width).</p>
+            </div>
+        </section>
+
+        <!-- Text Alignment Section -->
+        <section class="typography-section">
+            <h2>Text Alignment Examples</h2>
+
+            <div class="text-align-left">
+                <strong>Text-align: Left</strong>
+                <p>This text is aligned to the left, which is the default alignment for most left-to-right languages.</p>
+            </div>
+
+            <div class="text-align-center">
+                <strong>Text-align: Center</strong>
+                <p>This text is centered, commonly used for titles, headings, and decorative content.</p>
+            </div>
+
+            <div class="text-align-right">
+                <strong>Text-align: Right</strong>
+                <p>This text is aligned to the right side, useful for specific design layouts.</p>
+            </div>
+
+            <div class="text-align-justify">
+                <strong>Text-align: Justify</strong>
+                <p>This text is justified, meaning it is aligned to both the left and right margins. The spaces between words are adjusted to achieve this alignment, which creates a clean, newspaper-like appearance when done correctly.</p>
+            </div>
+        </section>
+
+        <!-- Text Decoration Section -->
+        <section class="typography-section">
+            <h2>Text Decoration and Transformation</h2>
+
+            <div class="typography-example">
+                <p><span class="text-underline">Underline</span> - Text with an underline decoration</p>
+                <p><span class="text-overline">Overline</span> - Text with an overline decoration</p>
+                <p><span class="text-line-through">Line-through</span> - Text with a strikethrough decoration</p>
+            </div>
+
+            <div class="typography-example">
+                <p class="text-uppercase">uppercase transformation - converts all text to uppercase</p>
+                <p class="text-lowercase">LOWERCASE TRANSFORMATION - CONVERTS ALL TEXT TO LOWERCASE</p>
+                <p class="text-capitalize">capitalize transformation - capitalizes the first letter of each word</p>
+            </div>
+        </section>
+
+        <!-- Text Shadow Section -->
+        <section class="typography-section">
+            <h2>Text Shadow Effects</h2>
+
+            <div class="typography-example">
+                <p class="shadow-subtle">Subtle shadow - Professional and refined</p>
+                <p class="shadow-medium">Medium shadow - More pronounced with offset</p>
+                <p class="shadow-dark">Dark shadow - Bold and dramatic effect</p>
+                <p class="shadow-colored">Colored shadow - Creative multi-colored effect</p>
+                <p class="shadow-glow">Glow effect - Luminous and eye-catching</p>
+            </div>
+        </section>
+
+        <!-- Line Height Section -->
+        <section class="typography-section">
+            <h2>Line Height Variations</h2>
+
+            <div class="line-height-tight">
+                <strong>Line-height: 1</strong>
+                <p>This text has tight line height (line-height: 1). The lines are very close together with minimal spacing between them. This can create a dense, compact appearance.</p>
+            </div>
+
+            <div class="line-height-normal">
+                <strong>Line-height: 1.5</strong>
+                <p>This text has normal line height (line-height: 1.5). This is a comfortable spacing for body text on most websites, providing good readability.</p>
+            </div>
+
+            <div class="line-height-relaxed">
+                <strong>Line-height: 2</strong>
+                <p>This text has relaxed line height (line-height: 2). The extra space between lines makes the text feel breathable and easy to read, though it uses more vertical space.</p>
+            </div>
+        </section>
+
+        <!-- Letter and Word Spacing -->
+        <section class="typography-section">
+            <h2>Letter and Word Spacing</h2>
+
+            <div class="typography-example">
+                <p class="letter-spacing-tight">Tight letter spacing - letters are close together</p>
+                <p class="letter-spacing-normal">Normal letter spacing - default spacing between letters</p>
+                <p class="letter-spacing-wide">Wide letter spacing - extra space between each letter</p>
+            </div>
+
+            <div class="typography-example">
+                <p class="word-spacing-small">This text has small word spacing between words.</p>
+                <p class="word-spacing-large">This   text   has   large   word   spacing   between   words.</p>
+            </div>
+        </section>
+
+        <!-- Text Indent and Font Weights -->
+        <section class="typography-section">
+            <h2>Text Indent and Font Weights</h2>
+
+            <div class="typography-example">
+                <p class="text-indent">This paragraph has a 2em text indent, which means the first line is indented. This is a classic typographic technique used in print and digital publishing to indicate the beginning of a new paragraph.</p>
+            </div>
+
+            <div class="typography-example">
+                <p class="font-weight-100">Font-weight: 100 (Thin) - Very light appearance</p>
+                <p class="font-weight-300">Font-weight: 300 (Light) - Light appearance</p>
+                <p class="font-weight-400">Font-weight: 400 (Normal) - Standard weight</p>
+                <p class="font-weight-500">Font-weight: 500 (Medium) - Slightly bolder</p>
+                <p class="font-weight-700">Font-weight: 700 (Bold) - Bold appearance</p>
+                <p class="font-weight-900">Font-weight: 900 (Black) - Extra bold appearance</p>
+            </div>
+        </section>
+
+        <!-- Font Styles -->
+        <section class="typography-section">
+            <h2>Font Styles</h2>
+
+            <div class="typography-example">
+                <p class="italic">This text is italicized using font-style: italic</p>
+                <p class="oblique">This text is oblique using font-style: oblique</p>
+            </div>
+        </section>
+
+        <!-- Summary -->
+        <section class="typography-section">
+            <h2>Summary</h2>
+            <p>This Typography Showcase demonstrates:</p>
+            <ul>
+                <li><strong>3 Google Fonts:</strong> Roboto, Open Sans, and Playfair Display</li>
+                <li><strong>Font Sizes:</strong> px, em, rem, %, and vw units</li>
+                <li><strong>Text Alignment:</strong> Left, center, right, and justify</li>
+                <li><strong>Text Decoration & Transformation:</strong> Underline, overline, line-through, uppercase, lowercase, capitalize</li>
+                <li><strong>Text Shadow Effects:</strong> Subtle, medium, dark, colored, and glow effects</li>
+                <li><strong>Spacing:</strong> Line height, letter spacing, word spacing, and text indent</li>
+                <li><strong>Font Properties:</strong> Font weights and styles</li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>

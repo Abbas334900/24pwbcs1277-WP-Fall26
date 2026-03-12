@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 9: CSS Transform Gallery</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/effects.css">
+    <style>
+        .transform-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .transform-box {
+            height: 250px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            user-select: none;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .transform-box:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Translate */
+        .translate-up {
+            transition: transform 0.3s ease;
+        }
+
+        .translate-up:hover {
+            transform: translateY(-20px);
+        }
+
+        .translate-right {
+            transition: transform 0.3s ease;
+        }
+
+        .translate-right:hover {
+            transform: translateX(20px);
+        }
+
+        .translate-down {
+            transition: transform 0.3s ease;
+        }
+
+        .translate-down:hover {
+            transform: translateY(20px);
+        }
+
+        .translate-left {
+            transition: transform 0.3s ease;
+        }
+
+        .translate-left:hover {
+            transform: translateX(-20px);
+        }
+
+        .translate-diagonal {
+            transition: transform 0.3s ease;
+        }
+
+        .translate-diagonal:hover {
+            transform: translate(15px, -15px);
+        }
+
+        /* Rotate */
+        .rotate-45 {
+            transition: transform 0.3s ease;
+        }
+
+        .rotate-45:hover {
+            transform: rotate(45deg);
+        }
+
+        .rotate-90 {
+            transition: transform 0.3s ease;
+        }
+
+        .rotate-90:hover {
+            transform: rotate(90deg);
+        }
+
+        .rotate-180 {
+            transition: transform 0.3s ease;
+        }
+
+        .rotate-180:hover {
+            transform: rotate(180deg);
+        }
+
+        .rotate-360 {
+            transition: transform 0.3s ease;
+        }
+
+        .rotate-360:hover {
+            transform: rotate(360deg);
+        }
+
+        .rotate-negative {
+            transition: transform 0.3s ease;
+        }
+
+        .rotate-negative:hover {
+            transform: rotate(-45deg);
+        }
+
+        /* Scale */
+        .scale-up {
+            transition: transform 0.3s ease;
+        }
+
+        .scale-up:hover {
+            transform: scale(1.3);
+        }
+
+        .scale-down {
+            transition: transform 0.3s ease;
+        }
+
+        .scale-down:hover {
+            transform: scale(0.7);
+        }
+
+        .scale-x {
+            transition: transform 0.3s ease;
+        }
+
+        .scale-x:hover {
+            transform: scaleX(1.5);
+        }
+
+        .scale-y {
+            transition: transform 0.3s ease;
+        }
+
+        .scale-y:hover {
+            transform: scaleY(1.5);
+        }
+
+        .scale-both {
+            transition: transform 0.3s ease;
+        }
+
+        .scale-both:hover {
+            transform: scale(1.2, 0.8);
+        }
+
+        /* Skew */
+        .skew-x {
+            transition: transform 0.3s ease;
+        }
+
+        .skew-x:hover {
+            transform: skewX(20deg);
+        }
+
+        .skew-y {
+            transition: transform 0.3s ease;
+        }
+
+        .skew-y:hover {
+            transform: skewY(20deg);
+        }
+
+        .skew-both {
+            transition: transform 0.3s ease;
+        }
+
+        .skew-both:hover {
+            transform: skew(15deg, 15deg);
+        }
+
+        .skew-negative {
+            transition: transform 0.3s ease;
+        }
+
+        .skew-negative:hover {
+            transform: skew(-20deg, 10deg);
+        }
+
+        /* 3D Transforms */
+        .container-3d {
+            perspective: 1000px;
+        }
+
+        .rotate-x-3d {
+            transition: transform 0.3s ease;
+        }
+
+        .rotate-x-3d:hover {
+            transform: rotateX(45deg);
+        }
+
+        .rotate-y-3d {
+            transition: transform 0.3s ease;
+        }
+
+        .rotate-y-3d:hover {
+            transform: rotateY(45deg);
+        }
+
+        .rotate-z-3d {
+            transition: transform 0.3s ease;
+        }
+
+        .rotate-z-3d:hover {
+            transform: rotateZ(45deg);
+        }
+
+        .rotate-3d {
+            transition: transform 0.3s ease;
+        }
+
+        .rotate-3d:hover {
+            transform: rotateX(20deg) rotateY(30deg) rotateZ(10deg);
+        }
+
+        /* Transform Origin */
+        .origin-top-left {
+            transition: transform 0.3s ease;
+            transform-origin: top left;
+        }
+
+        .origin-top-left:hover {
+            transform: rotate(45deg) scale(1.2);
+        }
+
+        .origin-top-right {
+            transition: transform 0.3s ease;
+            transform-origin: top right;
+        }
+
+        .origin-top-right:hover {
+            transform: rotate(-45deg) scale(1.2);
+        }
+
+        .origin-bottom-center {
+            transition: transform 0.3s ease;
+            transform-origin: bottom center;
+        }
+
+        .origin-bottom-center:hover {
+            transform: rotate(45deg) scale(1.3);
+        }
+
+        .origin-center {
+            transition: transform 0.3s ease;
+            transform-origin: center center;
+        }
+
+        .origin-center:hover {
+            transform: rotate(360deg) scale(1.2);
+        }
+
+        /* Combined Transforms */
+        .combine-translate-rotate {
+            transition: transform 0.5s ease;
+        }
+
+        .combine-translate-rotate:hover {
+            transform: translate(20px, -20px) rotate(20deg);
+        }
+
+        .combine-scale-rotate {
+            transition: transform 0.5s ease;
+        }
+
+        .combine-scale-rotate:hover {
+            transform: scale(1.3) rotate(45deg);
+        }
+
+        .combine-all {
+            transition: transform 0.5s ease;
+        }
+
+        .combine-all:hover {
+            transform: translate(15px, -15px) rotate(30deg) scale(1.1) skewY(5deg);
+        }
+
+        .combine-complex {
+            transition: transform 0.5s ease;
+        }
+
+        .combine-complex:hover {
+            transform: translateX(20px) rotateY(45deg) scaleX(1.2);
+        }
+
+        .section-container {
+            background: white;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .transform-description {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Task 9: CSS Transform Gallery</h1>
+        <p>Comprehensive showcase of CSS 2D and 3D transformations with interactive examples</p>
+
+        <!-- Translate Transforms -->
+        <div class="section-container">
+            <h2>1. Translate (Move) Transforms</h2>
+            <p>Hover to see translation effects in different directions</p>
+            <div class="transform-grid">
+                <div class="transform-box translate-up">
+                    ↑ Translate Up
+                    <p class="transform-description">translateY(-20px)</p>
+                </div>
+                <div class="transform-box translate-right">
+                    Translate Right →
+                    <p class="transform-description">translateX(20px)</p>
+                </div>
+                <div class="transform-box translate-down">
+                    ↓ Translate Down
+                    <p class="transform-description">translateY(20px)</p>
+                </div>
+                <div class="transform-box translate-left">
+                    ← Translate Left
+                    <p class="transform-description">translateX(-20px)</p>
+                </div>
+                <div class="transform-box translate-diagonal">
+                    Diagonal ↗
+                    <p class="transform-description">translate(15px, -15px)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rotate Transforms -->
+        <div class="section-container">
+            <h2>2. Rotate Transforms</h2>
+            <p>Hover to see rotation effects</p>
+            <div class="transform-grid">
+                <div class="transform-box rotate-45">
+                    Rotate 45°
+                    <p class="transform-description">rotate(45deg)</p>
+                </div>
+                <div class="transform-box rotate-90">
+                    Rotate 90°
+                    <p class="transform-description">rotate(90deg)</p>
+                </div>
+                <div class="transform-box rotate-180">
+                    Rotate 180°
+                    <p class="transform-description">rotate(180deg)</p>
+                </div>
+                <div class="transform-box rotate-360">
+                    Rotate 360°
+                    <p class="transform-description">rotate(360deg)</p>
+                </div>
+                <div class="transform-box rotate-negative">
+                    Rotate -45°
+                    <p class="transform-description">rotate(-45deg)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scale Transforms -->
+        <div class="section-container">
+            <h2>3. Scale Transforms</h2>
+            <p>Hover to see scaling effects</p>
+            <div class="transform-grid">
+                <div class="transform-box scale-up">
+                    Scale Up
+                    <p class="transform-description">scale(1.3)</p>
+                </div>
+                <div class="transform-box scale-down">
+                    Scale Down
+                    <p class="transform-description">scale(0.7)</p>
+                </div>
+                <div class="transform-box scale-x">
+                    Scale X
+                    <p class="transform-description">scaleX(1.5)</p>
+                </div>
+                <div class="transform-box scale-y">
+                    Scale Y
+                    <p class="transform-description">scaleY(1.5)</p>
+                </div>
+                <div class="transform-box scale-both">
+                    Scale Asymmetric
+                    <p class="transform-description">scale(1.2, 0.8)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skew Transforms -->
+        <div class="section-container">
+            <h2>4. Skew Transforms</h2>
+            <p>Hover to see skewing effects</p>
+            <div class="transform-grid">
+                <div class="transform-box skew-x">
+                    Skew X
+                    <p class="transform-description">skewX(20deg)</p>
+                </div>
+                <div class="transform-box skew-y">
+                    Skew Y
+                    <p class="transform-description">skewY(20deg)</p>
+                </div>
+                <div class="transform-box skew-both">
+                    Skew Both
+                    <p class="transform-description">skew(15deg, 15deg)</p>
+                </div>
+                <div class="transform-box skew-negative">
+                    Skew Negative
+                    <p class="transform-description">skew(-20deg, 10deg)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3D Transforms -->
+        <div class="section-container">
+            <h2>5. 3D Transforms</h2>
+            <p>Hover to see 3D rotation effects</p>
+            <div class="transform-grid container-3d">
+                <div class="transform-box rotate-x-3d">
+                    Rotate X (3D)
+                    <p class="transform-description">rotateX(45deg)</p>
+                </div>
+                <div class="transform-box rotate-y-3d">
+                    Rotate Y (3D)
+                    <p class="transform-description">rotateY(45deg)</p>
+                </div>
+                <div class="transform-box rotate-z-3d">
+                    Rotate Z (3D)
+                    <p class="transform-description">rotateZ(45deg)</p>
+                </div>
+                <div class="transform-box rotate-3d">
+                    Multi-axis 3D
+                    <p class="transform-description">rotateX/Y/Z combined</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Transform Origin -->
+        <div class="section-container">
+            <h2>6. Transform Origin</h2>
+            <p>Effects rotate/scale from different origin points</p>
+            <div class="transform-grid">
+                <div class="transform-box origin-top-left">
+                    Origin: Top Left
+                    <p class="transform-description">transform-origin: top left</p>
+                </div>
+                <div class="transform-box origin-top-right">
+                    Origin: Top Right
+                    <p class="transform-description">transform-origin: top right</p>
+                </div>
+                <div class="transform-box origin-bottom-center">
+                    Origin: Bottom Center
+                    <p class="transform-description">transform-origin: bottom center</p>
+                </div>
+                <div class="transform-box origin-center">
+                    Origin: Center
+                    <p class="transform-description">transform-origin: center center</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Combined Transforms -->
+        <div class="section-container">
+            <h2>7. Combined Transforms</h2>
+            <p>Multiple transform effects applied together</p>
+            <div class="transform-grid">
+                <div class="transform-box combine-translate-rotate">
+                    Translate + Rotate
+                    <p class="transform-description">translate(20px, -20px) rotate(20deg)</p>
+                </div>
+                <div class="transform-box combine-scale-rotate">
+                    Scale + Rotate
+                    <p class="transform-description">scale(1.3) rotate(45deg)</p>
+                </div>
+                <div class="transform-box combine-all">
+                    All Combined
+                    <p class="transform-description">translate/rotate/scale/skew</p>
+                </div>
+                <div class="transform-box combine-complex">
+                    Complex Transform
+                    <p class="transform-description">Multiple 3D effects</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="section-container">
+            <h2>Summary</h2>
+            <p>This CSS Transform Gallery demonstrates:</p>
+            <ul>
+                <li><strong>Translate:</strong> Moving elements in X, Y, and diagonal directions</li>
+                <li><strong>Rotate:</strong> Rotating elements in 2D with various angles</li>
+                <li><strong>Scale:</strong> Enlarging or shrinking elements uniformly or asymmetrically</li>
+                <li><strong>Skew:</strong> Distorting elements along X and Y axes</li>
+                <li><strong>3D Transforms:</strong> rotateX, rotateY, rotateZ for 3D effects</li>
+                <li><strong>Transform Origin:</strong> Changing the pivot point of transformations</li>
+                <li><strong>Combined Transforms:</strong> Multiple effects applied to single elements</li>
+                <li><strong>Smooth Transitions:</strong> CSS transitions for animation effects</li>
+                <li><strong>Interactive Hover Effects:</strong> Transforms triggered on mouse hover</li>
+                <li><strong>Performance:</strong> Efficient CSS-based animations</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

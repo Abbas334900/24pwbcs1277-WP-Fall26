@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 12: Course Website Styling</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <style>
+        body {
+            background: #f8f9fa;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+
+        .info-box {
+            background: #e8f4f8;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+
+        .section {
+            margin: 40px 0;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
+            margin-bottom: 20px;
+        }
+
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checklist li {
+            padding: 10px;
+            border-bottom: 1px solid #ecf0f1;
+            display: flex;
+            align-items: center;
+        }
+
+        .checklist li:before {
+            content: "☐ ";
+            color: #3498db;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        /* Example Table Styling */
+        .example-section {
+            background: #ecf0f1;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid #3498db;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        /* Zebra Striping */
+        tbody tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        /* Hover Effect */
+        tbody tr:hover {
+            background: #e8f4f8;
+            transform: scale(1.01);
+            transition: all 0.3s ease;
+        }
+
+        /* Course Type Badges */
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-align: center;
+            min-width: 70px;
+        }
+
+        .badge-theory {
+            background: #3498db;
+            color: white;
+        }
+
+        .badge-lab {
+            background: #27ae60;
+            color: white;
+        }
+
+        .badge-seminar {
+            background: #f39c12;
+            color: white;
+        }
+
+        .badge-project {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .instructor-name {
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        .room-number {
+            background: #ecf0f1;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+
+        .time-slot {
+            background: #e8f4f8;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+
+        .filter-buttons {
+            margin: 20px 0;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            border: 2px solid #3498db;
+            background: white;
+            color: #3498db;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #3498db;
+            color: white;
+        }
+
+        .statistics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid #ecf0f1;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            border-color: #3498db;
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #3498db;
+        }
+
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #2980b9;
+            transform: translateX(-5px);
+        }
+
+        .responsive-table {
+            overflow-x: auto;
+        }
+
+        @media (max-width: 768px) {
+            table {
+                font-size: 0.9rem;
+            }
+
+            th, td {
+                padding: 10px 5px;
+            }
+
+            .badge {
+                font-size: 0.75rem;
+                padding: 3px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-btn">← Back to Dashboard</a>
+
+        <h1>Task 12: Course Website Styling</h1>
+
+        <div class="info-box">
+            <strong>📋 Task Overview:</strong> Style the course schedule table from Lab 02 with professional CSS. Apply table-specific styling, zebra striping, hover effects, color-coded course types, and ensure the design is responsive on all devices.
+        </div>
+
+        <!-- Requirements Section -->
+        <div class="section">
+            <h2>Requirements</h2>
+            <ol>
+                <li><strong>Table Styling:</strong> Professional table headers with background colors and proper spacing</li>
+                <li><strong>Zebra Striping:</strong> Alternate row colors for better readability</li>
+                <li><strong>Hover Effects:</strong> Highlight rows on hover with transitions</li>
+                <li><strong>Color Coding:</strong> Different badge colors for course types (Theory, Lab, Seminar, Project)</li>
+                <li><strong>Typography:</strong> Clear font sizes and weights for headers and cells</li>
+                <li><strong>Responsive Design:</strong> Table scrolls horizontally on mobile devices</li>
+                <li><strong>Icons/Badges:</strong> Visual indicators for course types and status</li>
+                <li><strong>Spacing:</strong> Proper padding and margins for readability</li>
+                <li><strong>Shadows:</strong> Box shadows for depth and dimension</li>
+                <li><strong>Filters:</strong> Optional filter buttons to show specific course types</li>
+            </ol>
+        </div>
+
+        <!-- Example Section -->
+        <div class="section">
+            <h2>Example: Styled Course Schedule Table</h2>
+
+            <div class="example-section">
+                <!-- Statistics -->
+                <div class="statistics">
+                    <div class="stat-card">
+                        <div class="stat-number">12</div>
+                        <div class="stat-label">Total Courses</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">4</div>
+                        <div class="stat-label">Instructors</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">36</div>
+                        <div class="stat-label">Credit Hours</div>
+                    </div>
+                </div>
+
+                <!-- Filter Buttons -->
+                <h3>Filter by Type:</h3>
+                <div class="filter-buttons">
+                    <button class="filter-btn active">All Courses</button>
+                    <button class="filter-btn">Theory</button>
+                    <button class="filter-btn">Laboratory</button>
+                    <button class="filter-btn">Seminar</button>
+                    <button class="filter-btn">Project</button>
+                </div>
+
+                <!-- Table -->
+                <div class="responsive-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Course Code</th>
+                                <th>Course Name</th>
+                                <th>Type</th>
+                                <th>Instructor</th>
+                                <th>Time</th>
+                                <th>Location</th>
+                                <th>Credits</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>CS-201</strong></td>
+                                <td>Data Structures</td>
+                                <td><span class="badge badge-theory">Theory</span></td>
+                                <td><span class="instructor-name">Dr. Ahmed</span></td>
+                                <td><span class="time-slot">Mon 10:00</span></td>
+                                <td><span class="room-number">Lab-A1</span></td>
+                                <td>3</td>
+                                <td>Active</td>
+                            </tr>
+                            <tr>
+                                <td><strong>CS-202</strong></td>
+                                <td>Data Structures Lab</td>
+                                <td><span class="badge badge-lab">Lab</span></td>
+                                <td><span class="instructor-name">Mr. Khan</span></td>
+                                <td><span class="time-slot">Tue 14:00</span></td>
+                                <td><span class="room-number">Lab-B2</span></td>
+                                <td>1</td>
+                                <td>Active</td>
+                            </tr>
+                            <tr>
+                                <td><strong>CS-203</strong></td>
+                                <td>Web Development</td>
+                                <td><span class="badge badge-theory">Theory</span></td>
+                                <td><span class="instructor-name">Mr. Mohammad</span></td>
+                                <td><span class="time-slot">Wed 11:00</span></td>
+                                <td><span class="room-number">Room-301</span></td>
+                                <td>3</td>
+                                <td>Active</td>
+                            </tr>
+                            <tr>
+                                <td><strong>CS-204</strong></td>
+                                <td>Web Dev Lab</td>
+                                <td><span class="badge badge-lab">Lab</span></td>
+                                <td><span class="instructor-name">Mr. Hassan</span></td>
+                                <td><span class="time-slot">Thu 13:00</span></td>
+                                <td><span class="room-number">Lab-C3</span></td>
+                                <td>1</td>
+                                <td>Active</td>
+                            </tr>
+                            <tr>
+                                <td><strong>CS-205</strong></td>
+                                <td>Database Systems</td>
+                                <td><span class="badge badge-theory">Theory</span></td>
+                                <td><span class="instructor-name">Dr. Fatima</span></td>
+                                <td><span class="time-slot">Mon 14:00</span></td>
+                                <td><span class="room-number">Room-302</span></td>
+                                <td>3</td>
+                                <td>Active</td>
+                            </tr>
+                            <tr>
+                                <td><strong>CS-206</strong></td>
+                                <td>Database Lab</td>
+                                <td><span class="badge badge-lab">Lab</span></td>
+                                <td><span class="instructor-name">Mr. Ali</span></td>
+                                <td><span class="time-slot">Tue 15:00</span></td>
+                                <td><span class="room-number">Lab-D4</span></td>
+                                <td>1</td>
+                                <td>Active</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step-by-Step Section -->
+        <div class="section">
+            <h2>Step-by-Step Implementation</h2>
+
+            <h3>Step 1: Basic Table Structure</h3>
+            <p>Start with a clean HTML table:</p>
+            <div class="code-block">&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Course Code&lt;/th&gt;
+            &lt;th&gt;Course Name&lt;/th&gt;
+            &lt;th&gt;Type&lt;/th&gt;
+            &lt;th&gt;Instructor&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;CS-201&lt;/td&gt;
+            &lt;td&gt;Data Structures&lt;/td&gt;
+            &lt;td&gt;Theory&lt;/td&gt;
+            &lt;td&gt;Dr. Ahmed&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</div>
+
+            <h3>Step 2: Style Table Headers</h3>
+            <p>Make headers stand out with background color and proper spacing:</p>
+            <div class="code-block">thead {
+    background-color: #2c3e50;
+    color: white;
+}
+
+th {
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid #3498db;
+}</div>
+
+            <h3>Step 3: Style Table Cells</h3>
+            <p>Add padding and borders:</p>
+            <div class="code-block">td {
+    padding: 15px;
+    border-bottom: 1px solid #ecf0f1;
+}</div>
+
+            <h3>Step 4: Zebra Striping</h3>
+            <p>Alternate row colors for better readability:</p>
+            <div class="code-block">tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}</div>
+
+            <h3>Step 5: Hover Effects</h3>
+            <p>Highlight rows when users hover:</p>
+            <div class="code-block">tbody tr:hover {
+    background-color: #e8f4f8;
+    transform: scale(1.01);
+    transition: all 0.3s ease;
+}</div>
+
+            <h3>Step 6: Color-Coded Badges</h3>
+            <p>Create badge styles for different course types:</p>
+            <div class="code-block">.badge {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.badge-theory {
+    background-color: #3498db;
+    color: white;
+}
+
+.badge-lab {
+    background-color: #27ae60;
+    color: white;
+}</div>
+
+            <h3>Step 7: Make It Responsive</h3>
+            <p>Handle small screens:</p>
+            <div class="code-block">/* Wrap table in a container for horizontal scroll */
+.responsive-table {
+    overflow-x: auto;
+}
+
+/* On mobile, reduce padding */
+@media (max-width: 768px) {
+    th, td {
+        padding: 10px 5px;
+        font-size: 0.9rem;
+    }
+}</div>
+
+            <h3>Step 8: Add Filter Buttons (Optional)</h3>
+            <p>Allow users to filter by course type:</p>
+            <div class="code-block">.filter-btn {
+    padding: 8px 16px;
+    border: 2px solid #3498db;
+    background: white;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background-color: #3498db;
+    color: white;
+}</div>
+        </div>
+
+        <!-- CSS Properties Checklist -->
+        <div class="section">
+            <h2>CSS Properties to Use</h2>
+            <ul class="checklist">
+                <li>border-collapse for table styling</li>
+                <li>nth-child for zebra striping</li>
+                <li>background-color for row colors</li>
+                <li>padding and margin for spacing</li>
+                <li>hover state for interactive effects</li>
+                <li>transition for smooth animations</li>
+                <li>display: inline-block for badges</li>
+                <li>border-radius for rounded elements</li>
+                <li>box-shadow for depth</li>
+                <li>overflow-x for responsive tables</li>
+                <li>@media queries for mobile responsiveness</li>
+                <li>font-weight and color for text styling</li>
+            </ul>
+        </div>
+
+        <!-- Tips Section -->
+        <div class="section">
+            <h2>💡 Tips for Table Styling</h2>
+            <ul>
+                <li><strong>Readability:</strong> Use sufficient padding in cells so text doesn't feel cramped</li>
+                <li><strong>Contrast:</strong> Ensure enough contrast between background and text colors</li>
+                <li><strong>Headers:</strong> Make table headers visually distinct from body rows</li>
+                <li><strong>Alignment:</strong> Left-align text columns, right-align numbers</li>
+                <li><strong>Borders:</strong> Use subtle borders to separate cells without cluttering</li>
+                <li><strong>Alternating Colors:</strong> Use zebra striping to guide the eye horizontally</li>
+                <li><strong>Hover States:</strong> Provide visual feedback when users interact with rows</li>
+                <li><strong>Mobile:</strong> Always test on mobile - horizontal scrolling is better than squishing</li>
+                <li><strong>Badges:</strong> Use color-coded badges to quickly identify course types</li>
+                <li><strong>Less is More:</strong> Don't add too many colors or effects - keep it professional</li>
+            </ul>
+        </div>
+
+        <!-- Common Issues -->
+        <div class="section">
+            <h2>Common Issues & Solutions</h2>
+
+            <h3>Issue: Table doesn't look responsive</h3>
+            <div class="code-block">/* Wrap the table in a container with horizontal scroll */
+.responsive-table {
+    overflow-x: auto;
+    margin: 20px 0;
+}</div>
+
+            <h3>Issue: Zebra striping not working</h3>
+            <div class="code-block">/* Make sure you're targeting tbody rows, not all rows */
+tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}</div>
+
+            <h3>Issue: Hover effect too subtle</h3>
+            <div class="code-block">/* Increase the visual change on hover */
+tbody tr:hover {
+    background-color: #e8f4f8;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transform: scale(1.02);
+}</div>
+
+            <h3>Issue: Table looks too plain</h3>
+            <div class="code-block">/* Add shadows and rounded corners for depth */
+table {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}</div>
+        </div>
+
+        <!-- Submission -->
+        <div class="section">
+            <h2>Submission Checklist</h2>
+            <ul class="checklist">
+                <li>Table headers are styled distinctly</li>
+                <li>Zebra striping is applied to table rows</li>
+                <li>Hover effects are smooth and visible</li>
+                <li>Course types have color-coded badges</li>
+                <li>Table is responsive on mobile devices</li>
+                <li>Text is readable with good contrast</li>
+                <li>Spacing (padding/margin) is consistent</li>
+                <li>Borders are subtle but clear</li>
+                <li>No broken styling on different browsers</li>
+                <li>Code is properly formatted</li>
+            </ul>
+        </div>
+
+        <a href="../index.html" class="back-btn">← Back to Dashboard</a>
+
+    </div>
+</body>
+</html>

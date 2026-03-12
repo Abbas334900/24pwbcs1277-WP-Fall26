@@ -1,0 +1,276 @@
+/* ============================================
+   Typography Styling
+   ============================================ */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap');
+
+/* Typography Showcase Styles */
+
+.typography-section {
+  padding: 40px 0;
+}
+
+.typography-example {
+  margin: 30px 0;
+  padding: 20px;
+  background: #f8f9fa;
+  border-left: 4px solid #3498db;
+  border-radius: 4px;
+}
+
+/* Font Family Demonstrations */
+
+.font-roboto {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+.font-roboto-bold {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.font-roboto-light {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+.font-opensans {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+}
+
+.font-opensans-bold {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.1px;
+}
+
+.font-playfair {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Font Sizes Demonstrations */
+
+.font-size-px {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.font-size-em {
+  font-size: 1.25em;
+  margin-bottom: 15px;
+}
+
+.font-size-rem {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.font-size-percent {
+  font-size: 125%;
+  margin-bottom: 15px;
+}
+
+.font-size-vw {
+  font-size: 4vw;
+  margin-bottom: 15px;
+}
+
+/* Text Alignment */
+
+.text-align-left {
+  text-align: left;
+  padding: 15px;
+  background: #ecf0f1;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.text-align-center {
+  text-align: center;
+  padding: 15px;
+  background: #ecf0f1;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.text-align-right {
+  text-align: right;
+  padding: 15px;
+  background: #ecf0f1;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.text-align-justify {
+  text-align: justify;
+  padding: 15px;
+  background: #ecf0f1;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+/* Text Decoration */
+
+.text-underline {
+  text-decoration: underline;
+  text-decoration-color: #3498db;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.text-overline {
+  text-decoration: overline;
+  text-decoration-color: #e74c3c;
+  text-decoration-thickness: 2px;
+}
+
+.text-line-through {
+  text-decoration: line-through;
+  text-decoration-color: #95a5a6;
+}
+
+/* Text Transformation */
+
+.text-uppercase {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.text-lowercase {
+  text-transform: lowercase;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+/* Text Shadow Effects */
+
+.shadow-subtle {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-medium {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  color: #2c3e50;
+}
+
+.shadow-dark {
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+  color: #fff;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.shadow-colored {
+  text-shadow: 2px 2px 0px #3498db, 4px 4px 0px #e74c3c;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.shadow-glow {
+  text-shadow: 0 0 10px #3498db, 0 0 20px #3498db;
+  color: #3498db;
+  font-weight: bold;
+}
+
+/* Line Height */
+
+.line-height-tight {
+  line-height: 1;
+  padding: 10px;
+  background: #ecf0f1;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.line-height-normal {
+  line-height: 1.5;
+  padding: 10px;
+  background: #ecf0f1;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.line-height-relaxed {
+  line-height: 2;
+  padding: 10px;
+  background: #ecf0f1;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+/* Letter and Word Spacing */
+
+.letter-spacing-tight {
+  letter-spacing: -0.05em;
+}
+
+.letter-spacing-normal {
+  letter-spacing: 0;
+}
+
+.letter-spacing-wide {
+  letter-spacing: 0.15em;
+}
+
+.word-spacing-small {
+  word-spacing: 0.2em;
+}
+
+.word-spacing-large {
+  word-spacing: 0.5em;
+}
+
+/* Text Indent */
+
+.text-indent {
+  text-indent: 2em;
+  text-align: justify;
+}
+
+/* Font Weights */
+
+.font-weight-100 { font-weight: 100; }
+.font-weight-300 { font-weight: 300; }
+.font-weight-400 { font-weight: 400; }
+.font-weight-500 { font-weight: 500; }
+.font-weight-700 { font-weight: 700; }
+.font-weight-900 { font-weight: 900; }
+
+/* Font Style */
+
+.italic {
+  font-style: italic;
+}
+
+.oblique {
+  font-style: oblique;
+}
+
+/* White Space */
+
+.whitespace-nowrap {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.whitespace-pre {
+  white-space: pre;
+}
+
+.whitespace-prewrap {
+  white-space: pre-wrap;
+}
