@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CS 224L Lab 05 & 06 | CSS Layout Techniques & Responsive Design</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="title-page">
+    <div class="title-card centered">
+      <h1>UNIVERSITY OF ENGINEERING AND TECHNOLOGY, PESHAWAR PAKISTAN</h1>
+      <p><em>Main Campus</em></p>
+      <div class="logo-spot">
+        <img src="uet-logo.png" alt="UET Peshawar Logo" class="university-logo" />
+      </div>
+      <h2>CS-224 Web Technologies</h2>
+      <h2>Lab Manual No. 05&06</h2>
+      <h3>Submitted By</h3>
+      <div class="submitted-info">
+        <p><strong>Name:</strong> Abbas Khan</p>
+        <p><strong>Registration No:</strong> 24PWBCS1277</p>
+        <p><strong>Semester:</strong> BS CS 3rd</p>
+        <p><strong>Section:</strong> B</p>
+        <p><strong>Submission Date:</strong> 17/03/2026</p>
+      </div>
+      <h3>Submitted To</h3>
+      <p><strong>Sir Mohammad</strong></p>
+      <p>Department of Computer Science &amp; IT</p>
+      <p>University of Engineering and Technology, Peshawar, Pakistan</p>
+    </div>
+  </header>
+
+  <main>
+    <section id="overview">
+      <h2>Learning Outcomes</h2>
+      <ul>
+        <li>CSS display and layout techniques (block, inline, inline-block, none, table)</li>
+        <li>Float layout + clearfix</li>
+        <li>Positioning: static, relative, absolute, fixed, sticky</li>
+        <li>Flexbox and CSS Grid responsive layouts</li>
+        <li>Media queries and mobile-first design</li>
+      </ul>
+    </section>
+
+    <section id="display">
+      <h2>Part A: Display Property Fundamentals</h2>
+      <div class="example-block">
+        <div class="box display-block">display: block</div>
+        <span class="inline-item">display: inline</span>
+        <span class="inline-item">like text</span>
+        <div class="box-inline display-inline-block">display: inline-block</div>
+      </div>
+      <div class="hidden-area">
+        <p class="hidden">display: none (hidden)</p>
+        <p class="visibility-hidden">visibility: hidden (invisible but takes space)</p>
+      </div>
+      <nav class="nav-horizontal">
+        <a href="#display">Display</a>
+        <a href="#float">Float</a>
+        <a href="#position">Position</a>
+        <a href="#flexbox">Flexbox</a>
+        <a href="#grid">Grid</a>
+      </nav>
+      <nav class="nav-vertical">
+        <a href="#display">Block Nav</a>
+        <a href="#float">Block Nav</a>
+        <a href="#position">Block Nav</a>
+      </nav>
+    </section>
+
+    <section id="float">
+      <h2>Part B: Float-Based Layouts</h2>
+      <div class="clearfix float-wrap">
+        <img src="https://via.placeholder.com/150" alt="Float image" class="float-left" />
+        <p>Float left image with text wrapping. This is a responsive magazine-style float layout. On smaller screens, image becomes full width and text stacks below.</p>
+        <div class="float-right-box">Sidebar using float right.</div>
+      </div>
+      <div class="float-grid clearfix">
+        <div class="col">Column 1</div>
+        <div class="col">Column 2</div>
+        <div class="col">Column 3</div>
+      </div>
+    </section>
+
+    <section id="position">
+      <h2>Part C: CSS Positioning</h2>
+      <div class="position-demo">
+        <div class="pos-static">static box</div>
+        <div class="pos-relative">relative (top: 15px; left: 10px)</div>
+        <div class="pos-absolute-container">
+          <div class="pos-absolute">absolute in container</div>
+        </div>
+        <div class="pos-fixed">fixed top right</div>
+        <div class="pos-sticky">sticky header</div>
+      </div>
+
+      <div class="modal-parent" id="modalParent">
+        <button id="openModal">Open Modal</button>
+      </div>
+      <div class="modal-overlay" id="modalOverlay" aria-hidden="true">
+        <div class="modal-content">
+          <h3>Modal Dialog</h3>
+          <p>This modal is absolute/fixed and becomes full-screen on mobile.</p>
+          <button id="closeModal">Close</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="flexbox">
+      <h2>Part D: Flexbox Layout System</h2>
+      <div class="cards-container">
+        <article class="card">
+          <h3>Flex Card 1</h3>
+          <p>Equal height cards with flexbox.</p>
+          <button>Action</button>
+        </article>
+        <article class="card">
+          <h3>Flex Card 2</h3>
+          <p>More content to show height stretch behavior.</p>
+          <button>Action</button>
+        </article>
+        <article class="card">
+          <h3>Flex Card 3</h3>
+          <p>Another card with content.</p>
+          <button>Action</button>
+        </article>
+      </div>
+      <div class="holy-grail flex-holy-grail">
+        <aside class="side-left">Left</aside>
+        <article class="main">Main</article>
+        <aside class="side-right">Right</aside>
+      </div>
+    </section>
+
+    <section id="grid">
+      <h2>Part E: CSS Grid Layout System</h2>
+      <div class="photo-grid">
+        <div class="photo">1</div>
+        <div class="photo">2</div>
+        <div class="photo">3</div>
+        <div class="photo">4</div>
+        <div class="photo">5</div>
+        <div class="photo">6</div>
+      </div>
+      <div class="grid-holy-grail">
+        <div class="grid-header">Header</div>
+        <div class="grid-nav">Nav</div>
+        <div class="grid-main">Main content</div>
+        <div class="grid-aside">Aside</div>
+        <div class="grid-footer">Footer</div>
+      </div>
+    </section>
+
+    <section id="media">
+      <h2>Part F: Media Queries & Responsive Design</h2>
+      <p>Resize the browser to see changes at breakpoints: 768px, 1024px, 1200px, 1400px.</p>
+      <div class="breakpoint-indicator" id="bp-text">Current breakpoint: <span id="bp-value">auto</span></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Completed by Abbas Khan as CS 224L assignment for Lab 05 &amp; 06.</p>
+  </footer>
+
+  <script>
+    const modalOverlay = document.getElementById('modalOverlay');
+    const openModal = document.getElementById('openModal');
+    const closeModal = document.getElementById('closeModal');
+    openModal.addEventListener('click', () => {
+      modalOverlay.style.display = 'flex';
+      modalOverlay.setAttribute('aria-hidden', 'false');
+    });
+    closeModal.addEventListener('click', () => {
+      modalOverlay.style.display = 'none';
+      modalOverlay.setAttribute('aria-hidden', 'true');
+    });
+
+    function updateBreakpoint() {
+      const w = window.innerWidth;
+      let bp = 'mobile';
+      if (w >= 1400) bp = 'extra-large (>=1400px)';
+      else if (w >= 1200) bp = 'large desktop (>=1200px)';
+      else if (w >= 1024) bp = 'small desktop (>=1024px)';
+      else if (w >= 768) bp = 'tablet (>=768px)';
+      document.getElementById('bp-value').textContent = bp;
+    }
+    window.addEventListener('resize', updateBreakpoint);
+    updateBreakpoint();
+  </script>
+</body>
+</html>
